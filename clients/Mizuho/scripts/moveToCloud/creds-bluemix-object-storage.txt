@@ -1,0 +1,35 @@
+# Credentials file for moveToCloud.pl
+
+#
+# Lines that begin with # are considered comments and are not included in processing.
+# Remove # from the beginning of a line to include the content of the line in processing.
+#
+# Do not leave a space between the parameter and a value. 
+# For example, the wrong format is parameter=  value.
+# The correct format is parameter=value.
+# 
+
+
+#
+# Usage:
+#    Enter credentials by using the parameters in 1) and 2).
+#
+#    1) either 'accesskey' or 'username' or 'auth1'
+#    2) either 'secretkey' or 'password' or 'auth2'
+#
+#   If you are using SoftLayer token authentication use the token parameter instead.
+#
+#
+# For example, to connect to S3 with keys SampleName and SamplePassword uncomment the following 
+# lines:
+#
+# accesskey=SampleName
+# secretkey=SamplePassword
+#
+# For example, to connect to SoftLayer with token SampleToken, uncomment the following lines:
+#
+# token=SampleToken
+#
+token=gAAAAABZTY8LdS2B1MI3S4We4YESev-MJ3VXhJb8V_xfW_1_1pSTKgUxNcAjinXW4lJdbByU97dXGSdj1w_DfJaAC3YT7fNM8QjNP8XQxIauV2OLmAkxyGz3nY683fvKoNR5QwigHMCcnTfva4eOuPKuvWWVJ7xdQ8W-wjLJi-nlMxRYiKrlcyo
+#username=818d185a34e84fefb273a5dd6b119c5e
+#password=A[t9w{Kis?v^CAo9

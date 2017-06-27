@@ -1,0 +1,544 @@
+<!DOCTYPE html
+  PUBLIC "XSLT-compat" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+   
+   <head>
+      
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+      
+      <meta name="copyright" content="© Copyright IBM Corporation 2016"></meta>
+      
+      <meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2016"></meta>
+      
+      <meta name="security" content="public"></meta>
+      
+      <meta name="Robots" content="index,follow"></meta>
+      
+      <meta name="DC.Type" content="reference"></meta>
+      
+      <meta name="DC.Title" content="moveToCloud script readme"></meta>
+      
+      <meta name="abstract" content="Use the moveToCloud.pl script to upload data files to either SoftLayer object storage (Swift object storage) or Amazon S3. The script can split large files into smaller segments. When you load these file segments into dashDB, the segments are assembled to reproduce the single, large, original file. To minimize bandwidth and storage, you can use the gzip utility to compress the target file. You can also specify the number of threads to use for increased performance."></meta>
+      
+      <meta name="Description" content="Use the moveToCloud.pl script to upload data files to either SoftLayer object storage (Swift object storage) or Amazon S3. The script can split large files into smaller segments. When you load these file segments into dashDB, the segments are assembled to reproduce the single, large, original file. To minimize bandwidth and storage, you can use the gzip utility to compress the target file. You can also specify the number of threads to use for increased performance."></meta>
+      
+      <meta name="DC.Relation" scheme="URI" content="../learn_how/loaddata_movetocloud.html"></meta>
+      
+      <meta name="DC.Date" scheme="iso8601" content="2016-02-10"></meta>
+      
+      <meta name="DC.Format" content="XHTML"></meta>
+      
+      <meta name="DC.Identifier" content="moveToCloud_readme"></meta>
+      
+      <meta name="DC.Language" content="en-us"></meta>
+      
+      <meta name="IBM.Country" content="ZZ"></meta>
+      
+      <!-- Licensed Materials - Property of IBM -->
+      
+      <!-- US Government Users Restricted Rights -->
+      
+      <!-- Use, duplication or disclosure restricted by -->
+      
+      <!-- GSA ADP Schedule Contract with IBM Corp. -->
+      
+      <link rel="stylesheet" type="text/css" href="../ibmdita.css"></link>
+      
+      <link rel="stylesheet" type="text/css" href="../swg_info_common.css"></link>
+      
+      <link rel="Start" href="../learn_how/loaddata_movetocloud.html"></link>
+      
+      <title>moveToCloud script readme</title>
+      
+   </head>
+   
+   <body id="moveToCloud_readme">
+      <div role="main">
+         
+         <h1 class="title topictitle1">moveToCloud script readme</h1>
+         
+         <div class="body refbody">
+            <p class="shortdesc">Use the <span class="ph filepath">moveToCloud.pl</span> script to upload
+               data files to either SoftLayer® object
+               storage (Swift object storage) or Amazon S3. The script can split
+               large files into smaller segments. When you load these file segments
+               into <span class="ph">dashDB™</span>, the segments
+               are assembled to reproduce the single, large, original file. To minimize
+               bandwidth and storage, you can use the <span class="keyword cmdname">gzip</span> utility
+               to compress the target file. You can also specify the number of threads
+               to use for increased performance.
+            </p>
+            
+            <div class="section">
+               <p class="p">The script offers a convenient way to upload large objects
+                  over 5 GB that cannot be directly loaded into cloud storage services.
+                  The script includes options to specify the number of threads for the
+                  compression process, load files in batch, and define a temporary directory
+                  for files that are generated during processing.
+               </p>
+               
+               <p class="p">You can use
+                  the script to test your target credentials, the target URL, and the
+                  target container. You can also use the script to delete files that
+                  are stored on SoftLayer or
+                  Amazon S3.
+               </p>
+               
+               <p class="p">If you use an SSL connection (a URL that begins with <samp class="ph codeph">https://</samp>),
+                  the script encrypts the output files before they are sent to cloud
+                  storage. If you use a non-SSL connection (a URL that begins with <samp class="ph codeph">http://</samp>),
+                  the output files are not encrypted. 
+               </p>
+               
+               <dl class="dl">
+                  <dt class="dt dlterm"><strong class="ph b">Prerequisites</strong></dt>
+                  
+                  <dd class="dd">
+                     <ul class="ul">
+                        <li class="li">UNIX or Linux</li>
+                        
+                        <li class="li">Perl (version 5.10 or higher)</li>
+                        
+                        <li class="li">cURL</li>
+                        
+                        <li class="li">gzip</li>
+                        
+                     </ul>
+                     
+                  </dd>
+                  
+               </dl>
+               
+               <p class="p">After you download the script to your computer,
+                  grant execute permission to the script by using the <span class="keyword cmdname">chmod</span> command.
+                  For example, <samp class="ph codeph">chmod +x moveToCloud.pl</samp>. 
+               </p>
+               
+               <p class="p">If you
+                  cannot call the script as an executable, call the script by using
+                  a Perl input. For example, <samp class="ph codeph">'perl moveToCloud.pl'</samp>.
+               </p>
+               
+            </div>
+            
+            <div class="section">
+               <h2 class="title sectiontitle">Examples</h2>
+               <p class="p">In the following single file upload
+                  example, the script segments and compresses a file that is named <span class="ph filepath">sales</span> and
+                  then uploads it to the <span class="ph filepath">files</span> subdirectory of
+                  the <span class="ph filepath">mycontainer</span> container on the specified SoftLayer server that is located
+                  in Dallas. The script uses a credentials file named <span class="ph filepath">ids</span> and
+                  a temporary directory named <span class="ph filepath">temp</span>. The process
+                  uses six concurrent threads.
+               </p>
+               <pre class="pre codeblock"><code>moveToCloud.pl -source /home/user/sales -target softlayer::dallas::mycontainer::/files/targetfile -creds level1/ids -tmpdir /temp -threads 6</code></pre>
+               <p class="p">The
+                  following example uses only the required parameters for a single file
+                  upload:
+               </p>
+               <pre class="pre codeblock"><code>moveToCloud.pl -source /home/user/sales -target softlayer::dallas::mycontainer::/files/targetfile -creds level1/ids</code></pre>
+               <p class="p">The
+                  following batch file example uses a batch file that is named <span class="ph filepath">batch</span> and
+                  a temporary directory named <span class="ph filepath">temp</span>:
+               </p>
+               <pre class="pre codeblock"><code>moveToCloud.pl -batch /home/user/batch -tmpdir /temp</code></pre>
+               <p class="p">The
+                  following single file example uses SoftLayer object
+                  storage token authentication with a credentials file named <span class="ph filepath">token</span> and
+                  the object storage endpoint URL <span class="ph filepath">https://dal05.objectstorage.softlayer.net/v1/AUTH_user1</span>:
+               </p>
+               <pre class="pre codeblock"><code>moveToCloud.pl -source /home/user/sales -target softlayer::https://dal05.objectstorage.softlayer.net/v1/AUTH_user1::mycontainer::/files/targetfile -creds level1/token -token</code></pre>
+               </div>
+            
+            <div class="section">
+               <h2 class="title sectiontitle">Syntax</h2>
+               <p class="p">Parameters that are surrounded by
+                  "[ ]" are optional. Values that are surrounded by "&lt; &gt;" are optional.
+               </p>
+               
+               <dl class="dl">
+                  <dt class="dt dlterm">Single file syntax</dt>
+                  
+                  <dd class="dd"><pre class="pre codeblock"><code><span class="keyword cmdname">moveToCloud.pl</span> <span class="keyword parmname parmname">-source</span> <var class="keyword varname">source_file</var> <span class="keyword parmname parmname">-target</span> <var class="keyword varname">service</var>::<var class="keyword varname">url</var>::<var class="keyword varname">container</var>::<var class="keyword varname">path</var> <span class="keyword parmname parmname">-creds</span> <var class="keyword varname">credentials_file_path</var> [ <span class="keyword parmname parmname">-threads</span> <var class="keyword varname">number_of_threads</var> ] [ <span class="keyword parmname parmname">-nocompression</span> ] [ <span class="keyword parmname parmname">-tmpdir</span> <var class="keyword varname">temp_directory</var> ] [ <span class="keyword parmname parmname">-verbose</span> &lt; <var class="keyword varname">file_name</var> &gt; ] [ <span class="keyword parmname parmname">-quiet</span> ] [ <span class="keyword parmname parmname">-token</span> ]</code></pre>
+                     </dd>
+                  
+                  <dt class="dt dlterm">Batch file syntax</dt>
+                  
+                  <dd class="dd"><pre class="pre codeblock"><code><span class="keyword cmdname">moveToCloud.pl</span> <span class="keyword parmname parmname">-batch</span> <var class="keyword varname">batch_file</var> [ <span class="keyword parmname parmname">-tmpdir</span> <var class="keyword varname">temp_directory</var> ] [ <span class="keyword parmname parmname">-verbose</span> &lt; <var class="keyword varname">file_name</var> &gt; ] [ <span class="keyword parmname parmname">-quiet</span> ]</code></pre>
+                     </dd>
+                  
+                  <dt class="dt dlterm">Delete syntax</dt>
+                  
+                  <dd class="dd"><pre class="pre codeblock"><code><span class="keyword cmdname">moveToCloud.pl</span> <span class="keyword parmname parmname">-delete</span> <span class="keyword parmname parmname">-target</span> <var class="keyword varname">service</var>::<var class="keyword varname">url</var>::<var class="keyword varname">container</var>::<var class="keyword varname">path</var> <span class="keyword parmname parmname">-creds</span> <var class="keyword varname">credentials_file_path</var> [ <span class="keyword parmname parmname">-verbose</span> &lt; <var class="keyword varname">file_name</var> &gt; ] [ <span class="keyword parmname parmname">-quiet</span> ] [ <span class="keyword parmname parmname">-token</span> ]</code></pre>
+                     </dd>
+                  
+                  <dt class="dt dlterm">Test syntax</dt>
+                  
+                  <dd class="dd"><pre class="pre codeblock"><code><span class="keyword cmdname">moveToCloud.pl</span> <span class="keyword parmname parmname">-test</span> <span class="keyword parmname parmname">-target</span> <var class="keyword varname">service</var>::<var class="keyword varname">url</var>::<var class="keyword varname">container</var>::<var class="keyword varname">path</var> <span class="keyword parmname parmname">-creds</span> <var class="keyword varname">credentials_file_path</var> [ <span class="keyword parmname parmname">-token</span> ]</code></pre>
+                     </dd>
+                  
+                  <dt class="dt dlterm">Optional syntax</dt>
+                  
+                  <dd class="dd"><pre class="pre codeblock"><code><span class="keyword cmdname">moveToCloud.pl</span> [ <span class="keyword parmname parmname">-list</span> ] [ <span class="keyword parmname parmname">-help</span> ] [ <span class="keyword parmname parmname">-man</span> ]</code></pre>
+                     </dd>
+                  
+               </dl>
+               
+            </div>
+            
+            <div class="section">
+               <h2 class="title sectiontitle">Parameters</h2>
+               <dl class="dl">
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-source</span></dt>
+                  
+                  <dd class="dd">Required for single file processing.  The path to the source file
+                     name and path. For example, <span class="ph filepath">/home/user/file_name</span>.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-target</span></dt>
+                  
+                  <dd class="dd">Required for single file, test, and delete processing. The target
+                     server URL and container path in the following format: <var class="keyword varname">service</var>::<var class="keyword varname">url</var>::<var class="keyword varname">container</var>::<var class="keyword varname">path</var>. 
+                     <div class="p">
+                        <dl class="dl">
+                           <dt class="dt dlterm"><var class="keyword varname">service</var></dt>
+                           
+                           <dd class="dd">The cloud storage service name.  (For a complete listing of supported
+                              service name values, use the <span class="keyword parmname parmname">-list</span> parameter.) 
+                              <dl class="dl">
+                                 <dt class="dt dlterm">softlayer</dt>
+                                 
+                                 <dd class="dd">IBM® SoftLayer Object Storage</dd>
+                                 
+                                 <dt class="dt dlterm">s3</dt>
+                                 
+                                 <dd class="dd">Amazon AWS Simple Storage Service</dd>
+                                 
+                              </dl>
+                              
+                           </dd>
+                           
+                           <dt class="dt dlterm"><var class="keyword varname">url</var></dt>
+                           
+                           <dd class="dd">The URL of the cloud storage service or one of the following supported
+                              service tag values. (For a complete listing of supported service tag
+                              values, use the <span class="keyword parmname parmname">-list</span> parameter.) 
+                              <p class="p">If
+                                 you are using SoftLayer token
+                                 authentication, the URL corresponds to your object storage endpoint
+                                 URL instead of a service tag.
+                              </p>
+                              
+                              <p class="p">If you use a non-SSL connection,
+                                 you will be prompted to verify that SSL will not be used.
+                              </p>
+                              
+                              <dl class="dl">
+                                 <dt class="dt dlterm">SoftLayer service
+                                    tag values
+                                 </dt>
+                                 
+                                 <dd class="dd">
+                                    <p class="p">The following service tag values use an SSL connection, and
+                                       the script will encrypt files sent to these sites:
+                                    </p>
+                                    
+                                    <dl class="dl">
+                                       <dt class="dt dlterm">amsterdam</dt>
+                                       
+                                       <dd class="dd">https://ams01.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                       <dt class="dt dlterm">dallas</dt>
+                                       
+                                       <dd class="dd">https://dal05.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                       <dt class="dt dlterm">hongkong</dt>
+                                       
+                                       <dd class="dd">https://hkg02.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                       <dt class="dt dlterm">london</dt>
+                                       
+                                       <dd class="dd">https://lon02.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                       <dt class="dt dlterm">sanjose</dt>
+                                       
+                                       <dd class="dd">https://sjc01.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                       <dt class="dt dlterm">singapore</dt>
+                                       
+                                       <dd class="dd">https://sng01.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                       <dt class="dt dlterm">toronto</dt>
+                                       
+                                       <dd class="dd">https://tor01.objectstorage.softlayer.net/auth/v1.0</dd>
+                                       
+                                    </dl>
+                                    
+                                 </dd>
+                                 
+                                 <dt class="dt dlterm">S3 service tag values</dt>
+                                 
+                                 <dd class="dd">
+                                    <p class="p">The following service tag values use an SSL connection, and
+                                       the script will encrypt files sent to these sites:
+                                    </p>
+                                    
+                                    <dl class="dl">
+                                       <dt class="dt dlterm">ap-northeast-1</dt>
+                                       
+                                       <dd class="dd">https://s3-ap-northeast-1.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">ap-southeast-1</dt>
+                                       
+                                       <dd class="dd">https://s3-ap-southeast-1.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">ap-southeast-2</dt>
+                                       
+                                       <dd class="dd">https://s3-ap-southeast-2.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">eu-west-1</dt>
+                                       
+                                       <dd class="dd">https://s3-eu-west-1.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">sa-east-1</dt>
+                                       
+                                       <dd class="dd">https://s3-sa-east-1.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">us-east-1</dt>
+                                       
+                                       <dd class="dd">https://s3.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">us-west-1</dt>
+                                       
+                                       <dd class="dd">https://s3-us-west-1.amazonaws.com</dd>
+                                       
+                                       <dt class="dt dlterm">us-west-2</dt>
+                                       
+                                       <dd class="dd">https://s3-us-west-2.amazonaws.com</dd>
+                                       
+                                    </dl>
+                                    
+                                 </dd>
+                                 
+                                 <dt class="dt dlterm">container</dt>
+                                 
+                                 <dd class="dd">The name of the target container or bucket on the cloud storage
+                                    server.
+                                 </dd>
+                                 
+                                 <dt class="dt dlterm">path</dt>
+                                 
+                                 <dd class="dd">The target path of the container or bucket on the cloud storage
+                                    server. To use the source file name as the target file name, include
+                                    "/" at the end of the path (<span class="ph filepath">/put/file/here/</span>).
+                                    To specify a target file name, include the file name at the end of
+                                    the path (<span class="ph filepath">/put/file/here/targetfile</span>).
+                                 </dd>
+                                 
+                              </dl>
+                              
+                           </dd>
+                           
+                        </dl>
+                        
+                     </div>
+                     
+                     <p class="p">For example, <span class="ph filepath">softlayer::dallas::mycontainer::/put/file/here/targetfile</span>. 
+                     </p>
+                     
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-creds</span></dt>
+                  
+                  <dd class="dd">Required for single file, test, and delete processing. Specify
+                     the credentials file name and path. Refer to the sample credentials
+                     file that is included with moveToCloud.
+                     <div class="p">If you do not specify a
+                        credentials file, you will be prompted to supply the following user
+                        credentials:
+                        <dl class="dl">
+                           <dt class="dt dlterm">Amazon S3 </dt>
+                           
+                           <dd class="dd">accesskey</dd>
+                           
+                           <dd class="dd">secretkey</dd>
+                           
+                           <dt class="dt dlterm">SoftLayer</dt>
+                           
+                           <dd class="dd">username</dd>
+                           
+                           <dd class="dd">password</dd>
+                           
+                        </dl>
+                        
+                     </div>
+                     
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-token</span></dt>
+                  
+                  <dd class="dd">Required for SoftLayer token
+                     authentication. If you use this parameter with the <span class="keyword parmname parmname">-creds </span> parameter
+                     to specify a credentials file, the credentials file must contain your
+                     token. Refer to the sample credentials file that is included with
+                     the <span class="ph filepath">moveToCloud</span> zip file. If you do not specify
+                     a credentials file, you will be prompted to enter your token. This
+                     option is only supported by SoftLayer.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-batch</span></dt>
+                  
+                  <dd class="dd">Required for batch processing, which can process multiple source
+                     files. Specify the batch file name and path. Refer to the sample batch
+                     file that is included with moveToCloud.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-test</span></dt>
+                  
+                  <dd class="dd">Required for delete processing. Test your target credentials,
+                     the target URL, and target container. Use the test mode before you
+                     perform an upload to an account for the first time. If a container
+                     path is specified in <span class="keyword parmname parmname">-target</span>, the script verifies
+                     that the container does not contain a file name that matches a source
+                     file name.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-delete</span></dt>
+                  
+                  <dd class="dd">Required for delete processing. Deletes the target file or directory
+                     from cloud storage. If the value ends with "/", the script deletes
+                     a directory. Deleting a directory deletes all files recursively under
+                     the path. For Softlayer, if the target is a large object (manifest
+                     file), the associated parts are also deleted. You will receive a confirmation
+                     prompt unless the <span class="keyword parmname parmname">-quiet</span> option is used.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-threads</span></dt>
+                  
+                  <dd class="dd">The maximum number of concurrent threads to use during processing.
+                     Default is 5.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-nocompression</span></dt>
+                  
+                  <dd class="dd">Disable compression that is performed by gzip. Compression is
+                     enabled by default. This option must be specified for <samp class="ph codeph">.gz</samp> and <samp class="ph codeph">.gzip</samp> files.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-tmpdir</span></dt>
+                  
+                  <dd class="dd">Temporary work area directory. All temporary files that are created
+                     by the script will be stored in this directory and will be deleted
+                     after use.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-verbose</span> 
+                  </dt>
+                  
+                  <dd class="dd">Displayed detailed messages during processing. To output the messages
+                     to a file, use <samp class="ph codeph"><span class="keyword parmname parmname">-verbose</span> <var class="keyword varname">filename</var></samp>,
+                     where <var class="keyword varname">filename</var> is the name and path of the file.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-quiet</span></dt>
+                  
+                  <dd class="dd">Do not display messages during processing.
+                     <div class="note note"><span class="notetitle">Note:</span> Do not use <span class="keyword parmname parmname">-quiet</span> if
+                        you use a non-SSL connection for <span class="keyword parmname parmname">-target</span>. If
+                        you use a non-SSL connection, you must respond to a prompt to verify
+                        that SSL will not be used. The default action for this prompt will
+                        cancel processing. The <span class="keyword parmname parmname">-quiet</span> parameter prevents
+                        this prompt from displaying, which causes the script to use the default
+                        action and cancel processing.
+                     </div>
+                     
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-list</span></dt>
+                  
+                  <dd class="dd">List supported services and URL endpoints for use with <span class="keyword parmname parmname">-target</span>.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-yes</span></dt>
+                  
+                  <dd class="dd">Automatically respond "yes" to all prompts that are displayed
+                     during processing.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-no</span></dt>
+                  
+                  <dd class="dd">Automatically respond "no" to all prompts that are displayed during
+                     processing.
+                  </dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-help</span></dt>
+                  
+                  <dd class="dd">Display a brief overview of moveToCloud syntax.</dd>
+                  
+                  <dt class="dt dlterm"><span class="keyword parmname parmname">-man</span></dt>
+                  
+                  <dd class="dd">Display detailed help information for moveToCloud.</dd>
+                  
+               </dl>
+               
+            </div>
+            
+            <div class="section">
+               <h2 class="title sectiontitle">Result</h2>
+               <p class="p">After the moveToCloud processing
+                  is complete, the target file will be available at the specified target
+                  location. By default, the target file is compressed and includes the
+                  extension <span class="ph filepath">gz</span>. For example, for a target file
+                  that is named <span class="ph filepath">myfile</span>, if <span class="keyword parmname parmname">-nocompression</span> is
+                  not specified (default), the target file is named <span class="ph filepath">myfile.gz</span>,
+                  and if <span class="keyword parmname parmname">-nocompression</span> is specified, the target
+                  file is named <span class="ph filepath">myfile</span>.
+               </p>
+               
+               <p class="p">For SoftLayer storage, the process creates
+                  a pseudo-directory in the target directory that has the same name
+                  as the target file and includes the extension <span class="ph filepath">.parts</span>.
+                  The pseudo-directory contains the segmented parts of the file, which
+                  is necessary for the static large object implementation of SoftLayer.
+               </p>
+               
+               <p class="p">The moveToCloud
+                  process uses the following return codes:
+               </p>
+               
+               <dl class="dl">
+                  <dt class="dt dlterm">0</dt>
+                  
+                  <dd class="dd">Success.</dd>
+                  
+                  <dt class="dt dlterm">1</dt>
+                  
+                  <dd class="dd">Input error.</dd>
+                  
+                  <dt class="dt dlterm">2</dt>
+                  
+                  <dd class="dd">Interrupted.</dd>
+                  
+                  <dt class="dt dlterm">n</dt>
+                  
+                  <dd class="dd">Line of code at failure.</dd>
+                  
+               </dl>
+               
+            </div>
+            
+         </div>
+         
+         <div class="related-links">
+            
+            <div class="familylinks">
+               
+               <div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../learn_how/loaddata_movetocloud.html" title="Use the moveToCloud.pl script to upload data files to either SoftLayer object storage (Swift object storage) or Amazon S3.">Uploading data to cloud storage with moveToCloud</a></div>
+               
+            </div>
+            
+         </div>
+      </div>
+   </body>
+   
+</html>
