@@ -123,7 +123,7 @@ sub new
 {
   my $class = shift;
   my $self = {};
-  return bless $self, $class; 
+  return bless $self, $class;
 }
 
 sub setInputs
@@ -138,7 +138,7 @@ sub sigtrap
   my $sigMsg = $!;
 
   # Make sure that if quitting while entering a password/token,
-  # re-enable the character echoing 
+  # re-enable the character echoing
   system('stty','echo');
 
   $util->printWarn( "Caught signal: $sigMsg" );
@@ -282,7 +282,7 @@ sub cleanup
 
     if( defined $inputs->{'tmpdir'} )
     {
-      rmdir $inputs->{'tmpdir'}; 
+      rmdir $inputs->{'tmpdir'};
     }
   }
 
@@ -391,7 +391,7 @@ sub userError
   $self->printVerbose( "ERROR: " . $errorStr );
 
   croak "errorStr empty" if( not defined $errorStr );
-  
+
   $self->printOut( "Input error. Message:\n$errorStr" );
 
   $self->cleanup();
@@ -545,7 +545,7 @@ sub askBool
 ################################################################################
 ################################################################################
 #
-# Subroutines for file and directory operations 
+# Subroutines for file and directory operations
 #
 ################################################################################
 ################################################################################
@@ -564,13 +564,13 @@ sub checkReadFile
   {
     $self->userError( "$tag file \"$file\" does not exist or is not readable. Check path and permissions." );
   }
-  
+
   # File must be at least 1 byte in size
-  if ((-s "$file")<1) 
+  if ((-s "$file")<1)
   {
       $self->userError( "$tag file \"$file\" has 0 bytes in size and won't be processed. Remove the file from the list." );
   }
-  
+
 }
 
 sub checkWriteDir
@@ -733,11 +733,11 @@ sub retry
   my $subroutine  = shift;
   my @params      = @_;
   my $attempt     = 0;
-  my $returnVal; 
-  
+  my $returnVal;
+
   while ( $attempt < MoveToCloud::Constants::MAX_TRY_ATTEMPTS )
   {
-    return $returnVal  if eval { $returnVal = $subroutine->(@params) };   
+    return $returnVal  if eval { $returnVal = $subroutine->(@params) };
     if ( not $returnVal )
     {
       $attempt++;
@@ -1008,7 +1008,7 @@ sub new
                'username'         => shift,
                'password'         => shift,
                'token'            => shift,
-               'credentials'      => shift 
+               'credentials'      => shift
              };
   bless $self, $class;
   return $self;
@@ -1042,7 +1042,7 @@ sub curl
   }
   $request .= "\"$url\"";
   $util->printDebug( "cURL-$curlStmt: $request" );
-  my $tryResponse = sub 
+  my $tryResponse = sub
   {
      # -s = silent/quiet mode
      # -S = show error
@@ -1125,7 +1125,7 @@ use strict;
 use warnings;
 use Getopt::Long;
 use Pod::Usage;
-use Cwd; 
+use Cwd;
 use Carp;
 use File::Basename;
 use FindBin;
@@ -1134,8 +1134,8 @@ use Data::Dumper;
 
 my %validBatchFileOptions = ( 'credentials'   => "",
                               'sourcedir'     => "",
-                              'targetdir'     => "", 
-                              'service'       => "", 
+                              'targetdir'     => "",
+                              'service'       => "",
                               'url'           => "",
                               'container'     => "",
                               'threads'       => "",
@@ -1144,7 +1144,7 @@ my %validBatchFileOptions = ( 'credentials'   => "",
                               'chunk'         => "",
                               'block'         => "",
                               'errorexit'     => "",
-                              'usetoken'      => ""); 
+                              'usetoken'      => "");
 
 my $batchOptionsStart = "==OPTIONS_START==";
 my $batchOptionsEnd   = "==OPTIONS_END==";
@@ -1194,7 +1194,7 @@ sub listMode
 }
 
 sub parseInputs
-{ 
+{
   # Parse the user input arguments
   my $self = shift;
   my $errorStr;
@@ -1204,7 +1204,7 @@ sub parseInputs
   # Undocumented options are chunk,block,debug,keep
 
   # Subroutines for setting up options
-  my $setSource = sub 
+  my $setSource = sub
   {
     my ( $option, $source ) = @_;
     if ( defined $source )
@@ -1215,7 +1215,7 @@ sub parseInputs
     }
   };
 
-  my $setBatch = sub 
+  my $setBatch = sub
   {
     my ( $option, $batch ) = @_;
     if( defined $batch )
@@ -1226,7 +1226,7 @@ sub parseInputs
     }
   };
 
-  my $setCreds = sub 
+  my $setCreds = sub
   {
     my ( $option, $creds ) = @_;
     if ( defined $creds )
@@ -1236,7 +1236,7 @@ sub parseInputs
     }
   };
 
-  my $setTmpDir = sub 
+  my $setTmpDir = sub
   {
     my ( $option, $tmpdir ) = @_;
     if ( defined $tmpdir )
@@ -1246,7 +1246,7 @@ sub parseInputs
     }
   };
 
-  my $setDebug = sub 
+  my $setDebug = sub
   {
     my ( $option, $debugFile ) = @_;
     if( defined $debugFile )
@@ -1261,10 +1261,10 @@ sub parseInputs
   my $help;
   my $man;
   my $verboseFile;
-  
+
   Getopt::Long::Configure( "long_prefix_pattern=(--|-)" );
   GetOptions( "source=s"      => $setSource,
-              "target=s"      => \$self->{'target'}, 
+              "target=s"      => \$self->{'target'},
               "batch=s"       => $setBatch,
               "test"          => sub { $self->setMode('t') },
               "delete"        => sub { $self->setMode('d'); $compress = 0 },
@@ -1282,7 +1282,7 @@ sub parseInputs
               "no"            => sub { $self->{'yes'} = 0 },
               "chunk=i"       => \$self->{'chunk'},
               "block=i"       => \$self->{'block'},
-              "debug=s"       => $setDebug, 
+              "debug=s"       => $setDebug,
               "keep"          => \$keepFile
             ) or pod2usage({ -exitval => 0 });
 
@@ -1355,7 +1355,7 @@ sub parseInputs
   if( $compress == 0 )
   {
     $util->printVerbose( "Compression disabled." ) if ($mode ne 'delete');
-  } 
+  }
 
   # Parse the batch file
   if( $mode eq "batch" )
@@ -1448,7 +1448,7 @@ sub getCredentials
           {
             if ( lc($key) eq "token" )
             {
-              $errorStr = $errorStr . "key \"token\" found in credentials file. If you intended to use token authentication, include the \"-token\" option.\n"; 
+              $errorStr = $errorStr . "key \"token\" found in credentials file. If you intended to use token authentication, include the \"-token\" option.\n";
             }
             $util->userError( $errorStr . "unrecognized key \"$key\" found in credentials file when looking for username and password." );
           }
@@ -1492,7 +1492,7 @@ sub getCredentials
         $util->userError( "Credentials file must have one of secretkey/password/auth2 keys." );
       }
     }
-    else 
+    else
     {
       if( not defined $self->{'token'} )
       {
@@ -1601,7 +1601,7 @@ sub checkSource
   {
     if( $compress and $self->isSourceCompressed($self->{'source'}{'name'}) )
     {
-      $util->userError( "Compression not disabled but source $self->{'source'}{'name'} already compressed." 
+      $util->userError( "Compression not disabled but source $self->{'source'}{'name'} already compressed."
                         . " Decompress or use the -nocompression option." );
     }
     $self->{'source'}{'basename'} = basename($self->{'source'}{'name'});
@@ -1624,7 +1624,7 @@ sub checkSource
 sub isSourceCompressed
 {
   # Check if the source is already compressed
-  
+
   my $self = shift;
   my $source = shift;
   if( ( $source =~ m/\.g(z|zip)$/) or
@@ -1801,7 +1801,7 @@ sub parseBatch
   my %targetService = (); # hash to hold target service, url, container and
                           # possibly targetdir for creating target object
 
-  # The upload entry hashes are stored as an array in the input object 
+  # The upload entry hashes are stored as an array in the input object
   # Initialize that array here
   # Entries of this array correspond to an upload object
   my $batch = MoveToCloud::Inputs->new();
@@ -1933,12 +1933,12 @@ sub parseBatch
 
   $util->closeFile( 'batch' );
   # End of file reached
-  
+
   if ( $targetService{'service'} eq "s3" && $self->{'usetoken'} )
   {
     $util->userError( "Token authentication is incompatible with s3. Authenticate using username and password." );
   }
-  
+
   # Service and URL options are required
   foreach my $key ('service','url','container')
   {
@@ -2064,7 +2064,7 @@ sub checkTarget
   # Batch mode got it from the batch file earlier
   if( $mode ne "batch" )
   {
-    # Set up the target object 
+    # Set up the target object
     # This will result in the hash having the following keys:
     # 'service'       - service name (softlayer, s3)
     # 'url'           - actual URL (resolved below if input was an alias)
@@ -2157,8 +2157,8 @@ sub checkTarget
   # Validate the service and url, and check the connection
   $target->validateUrl($inputs);
   # Initialize data needed for curl requests
-  $target->{'curl'} = MoveToCloud::Curl->new( $inputs->{'curlout'}, 
-                                              $target->{'username'}, 
+  $target->{'curl'} = MoveToCloud::Curl->new( $inputs->{'curlout'},
+                                              $target->{'username'},
                                               $target->{'password'},
                                               $target->{'token'} );
 
@@ -2284,11 +2284,11 @@ sub validateUrl
       {
         $util->userError( "Not continuing due to insecure connection." );
       }
-      $inputUrl =~ s/http/https/; 
+      $inputUrl =~ s/http/https/;
     }
     if ( defined $inputs->{'token'} )
     {
-      # using a token, so modify the input url to check if it corresponds to a valid 
+      # using a token, so modify the input url to check if it corresponds to a valid
       # softlayer service url
       $inputUrl =~ s/(.*\.net).*/$1/;
       $inputUrl = $inputUrl . "/auth/v1.0";
@@ -2655,7 +2655,7 @@ sub listFilesForService
 sub prepareFileDelete
 {
   # Prepare delete for single file
-  
+
   my $self      = shift;
   my @filesList = $self->listFiles( $self->{'name'} );
 
@@ -2670,10 +2670,10 @@ sub bulkDelete
 {
   # Perform a bulk delete request
   # This will delete multiple objects in a single request
-  
+
   my $self     = shift;
-  my $scriptID = shift; 
-  my $inputs   = shift; 
+  my $scriptID = shift;
+  my $inputs   = shift;
   my @files    = @_;
 
   my $numFiles = ($#files+1);
@@ -2714,7 +2714,7 @@ sub putFile
   if( not $httpCode )
   {
    # Upload failed
-   return "Upload to \"$target_name\" failed: $httpMsg"; 
+   return "Upload to \"$target_name\" failed: $httpMsg";
   }
   return 0;
 }
@@ -3450,7 +3450,7 @@ sub setup
     @response = $self->getCheckAuthentication(1);
 
     ($httpCode, $httpMsg) = $util->httpCodeCheck("400,401,403", @response);
-    if ( $httpCode ) 
+    if ( $httpCode )
     {
        # Response says Unauthorized
        $util->userError( "SoftLayer authentication error. Check token and url values." );
@@ -3570,7 +3570,7 @@ sub prepareFileDelete
   # Prepare delete for target that is a single file
   my $self = shift;
   my %target_metadata;
-   
+
   # We will try and get its metadata. This can tell us if it exists
   # and if it is a manifest file.
   if( not $self->describeFile( $self->{'name'}, \%target_metadata ) )
@@ -3657,7 +3657,7 @@ sub bulkDelete
 {
   # Perform a bulk delete request
   # This will delete multiple objects in a single request
-  
+
   my $self     = shift;
   my $scriptID = shift; # this param is not used... but required for s3.
   my $inputs   = shift;
@@ -3665,12 +3665,12 @@ sub bulkDelete
 
   my $numFiles = ($#files+1);
   $util->printDebug( "bulk delete of $numFiles files" );
-  
+
   # See http://docs.openstack.org/api/openstack-object-storage/1.0/content/bulk-delete.html
   my $encodedList = "";
   $encodedList = join( "\n",  map { "$self->{'container'}/" . encode_utf8($_) } @files);
 
-  if ( $numFiles < 999 ) 
+  if ( $numFiles < 999 )
   {
     $self->{'encodedList'} = $encodedList;
   }
@@ -3695,7 +3695,7 @@ sub bulkDelete
     $util->userError( "SoftLayer bulk delete request error. Tried to delete $numFiles, only successful for $numDeleted." );
   }
 
-  if ( defined $self->{'encodedList'} ) 
+  if ( defined $self->{'encodedList'} )
   {
     undef $self->{'encodedList'};
   }
@@ -3810,10 +3810,10 @@ sub new
 
   my $self = { 'inputs'      => shift,
                'target'      => shift,
-               'filehandles' => shift,  
-               'rc'          => 0, 
+               'filehandles' => shift,
+               'rc'          => 0,
                'errorMsg'    => "",
-               'pids'        => [] 
+               'pids'        => []
              };
 
   bless $self, $class;
@@ -3874,7 +3874,7 @@ sub setup
   $self->{'pipesInfo'}  = \%pipesInfo;
 
   my $uploadInfo = $self->{'uploadInfo'};
-  
+
   # Make the working directory
   $self->setUploadInfoId($uploadId);
   $uploadInfo->{'workingDir'} = $inputs->{'tmpdir'}.${scriptID}.'.'.$uploadInfo->{'id'};
@@ -3975,7 +3975,7 @@ sub simpleUpload
 }
 
 sub uploadSourceToTarget
-{ 
+{
   # Upload the source file to the target
   #
   # The process is as follows:
@@ -4007,7 +4007,7 @@ sub uploadSourceToTarget
 
   # Cleanup requires closing the in and out file handles.
   # There will only be one file open for reading and one for writing at a time.
-  
+
   my $self = shift;
   $self->setup(shift);
 
@@ -4035,13 +4035,13 @@ sub uploadSourceToTarget
       # It is initialized to 0, and the only case it is TRUE should not loop
       croak "programming error: singlePart true";
     }
-    
+
     (my $part, my $pipes) = $self->createParts();
 
     # Loop started with reading out one block.
     # Write that block to the chunk and then read and write more blocks until
     # chunk size is reached.
-    
+
     my $outFH = $self->{'filehandles'}{$part->{'tag'}}; # Quick file handle reference
 
     while(1)
@@ -4087,7 +4087,7 @@ sub uploadSourceToTarget
     # Two types of upload:
     # - simple (5GB limit, single upload)
     # - large object / multipart
-    
+
     if( ($uploadInfo->{'partCount'} == 1 ) and
         ($part->{'size'} < $chunkSize) )
     {
@@ -4193,13 +4193,13 @@ sub uploadSourceToTarget
         # Ready to upload
         # Make sure the file size is defined
         $part->{'uploadSize'} = $util->retry( \&stat, $fileToUpload );
-        $util->printDebug( "uploading " . $fileToUpload . 
+        $util->printDebug( "uploading " . $fileToUpload .
                      "(" . $part->{'uploadSize'} . " bytes)" );
 
         print {$pipes->{'wUploadSize'}} $part->{'uploadSize'};
         close $pipes->{'wUploadSize'};
 
-        # call putFile subroutine specific to Softlayer/S3 upload task 
+        # call putFile subroutine specific to Softlayer/S3 upload task
         $self->putFile( $pipes, $fileToUpload, $part );
 
         close $pipes->{'wFeedback'};
@@ -4616,7 +4616,7 @@ use Carp;
 sub new
 {
   my $class = shift;
-  my $self  = $class->SUPER::new(shift, shift, shift, shift); # inherit all fields from parent 
+  my $self  = $class->SUPER::new(shift, shift, shift, shift); # inherit all fields from parent
 
   bless $self, $class;
   return $self;
@@ -4625,9 +4625,9 @@ sub new
 sub putFile
 {
   my $self         = shift;
-  my $pipes_ref    = shift; 
+  my $pipes_ref    = shift;
   my $fileToUpload = shift;
-  my $part_ref     = shift; 
+  my $part_ref     = shift;
   my $target       = $self->{'target'};
   my $errorMsg     = $self->{'errorMsg'};
 
@@ -4680,7 +4680,7 @@ use Carp;
 sub new
 {
   my $class = shift;
-  my $self  = $class->SUPER::new(shift, shift, shift, shift); # inherit all fields from parent 
+  my $self  = $class->SUPER::new(shift, shift, shift, shift); # inherit all fields from parent
 
   bless $self, $class;
   return $self;
@@ -4689,7 +4689,7 @@ sub new
 sub setup
 {
   my $self = shift;
-  $self->SUPER::setup(shift);           
+  $self->SUPER::setup(shift);
   $self->initiateMultipartUpload();
 }
 
@@ -4888,7 +4888,7 @@ sub configure
 sub main
 {
   my $rc = 0;
-  
+
   my $inputs = MoveToCloud::Inputs->new();
   $util->setInputs($inputs);
   &configure($inputs);
@@ -4980,7 +4980,7 @@ The source file is split into chunks which are compressed with gzip (unless '-no
 
 =cut
 
-=head1 SYNOPSIS 
+=head1 SYNOPSIS
 
 moveToCloud.pl -source <source> -target <target> [options]
 
@@ -4996,9 +4996,9 @@ moveToCloud.pl [-help | -man]
 
 options = [-creds <credentials>] [-token] [-threads <threads>] [-nocompression] [-tmpdir <temp_directory>] [-verbose [<output_file>]] [-quiet] [-yes | -no]
 
-Where: 
+Where:
 
-  source      = data file to upload (absolute or relative path) 
+  source      = data file to upload (absolute or relative path)
 
   target      = where to store the file in the cloud
                 format: <service>::<url>::<container>::<path>
@@ -5149,11 +5149,11 @@ Amazon S3:
 
 =over 4
 
-=item * 
+=item *
 
 access key ID
 
-=item * 
+=item *
 
 secret access key
 
@@ -5163,11 +5163,11 @@ SoftLayer:
 
 =over 4
 
-=item * 
+=item *
 
 username
 
-=item * 
+=item *
 
 password
 
@@ -5177,7 +5177,7 @@ password
 
 =head2 TOKEN_DETAILS
 
-SoftLayer token authentication can be used with credentials option. See the sample credentials file "sample_credentials.txt" for a full description of how set up a credentials file using a token. 
+SoftLayer token authentication can be used with credentials option. See the sample credentials file "sample_credentials.txt" for a full description of how set up a credentials file using a token.
 If you do not specify a credentials file, you will be prompted to enter your token.
 
 =cut
@@ -5202,4 +5202,3 @@ In SoftLayer a subfolder will be created in the target's directory, with the fil
 (C) Copyright IBM Corp. 2014, 2015
 
 =cut
-
