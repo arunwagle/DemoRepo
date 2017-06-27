@@ -4,10 +4,10 @@
 # Lines that begin with # are considered comments and are not included in processing.
 # Remove # from the beginning of a line to include the content of the line in processing.
 #
-# Do not leave a space between the parameter and a value. 
+# Do not leave a space between the parameter and a value.
 # For example, the wrong format is parameter=  value.
 # The correct format is parameter=value.
-# 
+#
 
 
 #
@@ -20,7 +20,7 @@
 #   If you are using SoftLayer token authentication use the token parameter instead.
 #
 #
-# For example, to connect to S3 with keys SampleName and SamplePassword uncomment the following 
+# For example, to connect to S3 with keys SampleName and SamplePassword uncomment the following
 # lines:
 #
 # accesskey=SampleName
@@ -30,6 +30,5 @@
 #
 # token=SampleToken
 #
-token=gAAAAABZTY8LdS2B1MI3S4We4YESev-MJ3VXhJb8V_xfW_1_1pSTKgUxNcAjinXW4lJdbByU97dXGSdj1w_DfJaAC3YT7fNM8QjNP8XQxIauV2OLmAkxyGz3nY683fvKoNR5QwigHMCcnTfva4eOuPKuvWWVJ7xdQ8W-wjLJi-nlMxRYiKrlcyo
-#username=818d185a34e84fefb273a5dd6b119c5e
+token=gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds
 #password=A[t9w{Kis?v^CAo9

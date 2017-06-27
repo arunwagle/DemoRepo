@@ -1,0 +1,119 @@
+moveToCloud.pl debug file
+--------------------------------------------------------------------------------
+662: opened log.txt as debug successfully after 0 attempts
+1323: Start time: Tue Jun 27 01:00:45 2017
+1324: Process ID: 90271
+1325: Run mode: single
+1357: Compression disabled.
+662: opened creds-bluemix-object-storage.txt as credentials successfully after 0 attempts
+725: got line 33, skipped 32, from tag credentials
+1421: found token in credentials file
+1458: looking for token
+725: got line -1, skipped 1, from tag credentials
+672: closing credentials
+1504: Credentials file valid.
+2258: cleaned up target name: AssetsImportCompleteSample.csv
+2138: Target details:
+'container' = 'csv_landing_zone'
+'dir' = ''
+'is_dir' = '0'
+'name' = 'AssetsImportCompleteSample.csv'
+'parts_dir' = 'AssetsImportCompleteSample.csv.parts/'
+'parts_prefix' = 'AssetsImportCompleteSample.csv.parts/AssetsImportCompleteSample.csv_'
+'password' = '***MASKED***'
+'service' = 'softlayer'
+'service_urls' = 'HASH(0x9aacd8)'
+'targetdir' = ''
+'token' = ''
+'url' = 'dallas'
+'username' = '***MASKED***'
+3400: Setting up Softlayer access ...
+3447: authenticating softlayer with token
+1044: cURL-1: -X HEAD \
+-i \
+-H "X-Auth-Token: gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883"
+1085: curl request (3316):
+1099: curl -s -X HEAD -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883
+1117: curl response summary (3316):
+HTTP/1.1 204 No Content
+Content-Length: 0
+X-Timestamp: 1497997485.09063
+X-Trans-Id: tx878e68a92d5f4c6599c71-0059527a32
+Date: Tue, 27 Jun 2017 15:30:59 GMT
+3458: authentication successful
+3461: checking softlayer container "csv_landing_zone"
+1044: cURL-2: -X GET \
+-i \
+-H "X-Auth-Token: gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883?format=json"
+1085: curl request (3326):
+1099: curl -s -X GET -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883?format=json
+1117: curl response summary (3326):
+HTTP/1.1 200 OK
+Content-Length: 126
+X-Timestamp: 1497997485.09063
+X-Trans-Id: txf8b4b0b269904bd7a92df-0059527a34
+Date: Tue, 27 Jun 2017 15:31:00 GMT
+3517: target url with container name "https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone"
+2488: listing files with prefix ""
+1044: cURL-3: -X GET -i \
+-H "X-Auth-Token: gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100"
+1085: curl request (3339):
+1099: curl -s -X GET -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100
+1117: curl response summary (3339):
+HTTP/1.1 200 OK
+Content-Length: 45
+X-Timestamp: 1498232796.73263
+X-Trans-Id: tx1c2f49b8a1e34ba385ee2-0059527a37
+Date: Tue, 27 Jun 2017 15:31:03 GMT
+1044: cURL-4: -X GET -i \
+-H "X-Auth-Token: gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100&marker=WIKI_20160830.csv"
+1085: curl request (3339):
+1099: curl -s -X GET -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100&marker=WIKI_20160830.csv
+1117: curl response summary (3339):
+HTTP/1.1 204 No Content
+Content-Length: 0
+X-Timestamp: 1498232796.73263
+X-Trans-Id: tx5706ffd8a330452c80560-0059527a39
+Date: Tue, 27 Jun 2017 15:31:05 GMT
+2497: list of files with prefix "":
+Consumer_Complaints.csv.gz
+WIKI_20160830.csv
+662: opened ../../data/AssetsImportCompleteSample.csv as source successfully after 0 attempts
+4022: Starting upload process for ../../data/AssetsImportCompleteSample.csv to AssetsImportCompleteSample.csv
+4364: U001P001: source chunk name "temp/149853964590271.001/AssetsImportCompleteSample.csv_001"
+4377: U001P001: target part name "AssetsImportCompleteSample.csv.parts/AssetsImportCompleteSample.csv_001"
+662: opened temp/149853964590271.001/AssetsImportCompleteSample.csv_001 as U001P001 successfully after 0 attempts
+672: closing U001P001
+4085: U001P001: wrote 3245 to "temp/149853964590271.001/AssetsImportCompleteSample.csv_001"
+4098: Source "AssetsImportCompleteSample.csv" small enough for single upload.
+3959: uploading ../../data/AssetsImportCompleteSample.csv(3245 bytes) to AssetsImportCompleteSample.csv
+3734: put ../../data/AssetsImportCompleteSample.csv to AssetsImportCompleteSample.csv
+662: opened ../../data/AssetsImportCompleteSample.csv as md5 successfully after 0 attempts
+672: closing md5
+1044: cURL-5: -X PUT -i \
+-H "X-Auth-Token: gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds" \
+-H "ETag: b64484fd6dfca0bd374e8dbc5d0faba2" \
+-T ../../data/AssetsImportCompleteSample.csv \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone/AssetsImportCompleteSample.csv"
+1085: curl request (3773):
+1099: curl -s -X PUT -i -H "X-Auth-Token: ***MASKED***" -H "ETag: b64484fd6dfca0bd374e8dbc5d0faba2" -T ../../data/AssetsImportCompleteSample.csv https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone/AssetsImportCompleteSample.csv
+1117: curl response summary (3773):
+HTTP/1.1 100 Continue
+HTTP/1.1 201 Created
+Content-Length: 0
+X-Trans-Id: tx62de3b2667914666b91d5-0059527a3a
+Date: Tue, 27 Jun 2017 15:31:06 GMT
+3792: put AssetsImportCompleteSample.csv successful
+4307: finished 1 uploads, total size 0 bytes
+4322: Successfully uploaded to "AssetsImportCompleteSample.csv"
+4426: Cleaning up upload 001
+672: closing source
+4473: removed temp/149853964590271.001/AssetsImportCompleteSample.csv_001 from upload tmpdir
+4477: done cleaning up from upload 001
+263: cleanup called at line 4963
+306: done cleaning up, closing debug filehandle
+672: closing debug
