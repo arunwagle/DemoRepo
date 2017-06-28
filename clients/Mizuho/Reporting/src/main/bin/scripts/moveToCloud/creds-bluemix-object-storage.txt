@@ -30,5 +30,5 @@
 #
 # token=SampleToken
 #
-token=gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds
-#password=A[t9w{Kis?v^CAo9
+#token=gAAAAABZUnZ-NKlOMdwXgnLTJvJKLwv-LC03qtjd-8d3i7uR2lurBXMPV4bu0PcM7BDX99RvKY-CGxCCQ4aTyGNE4xYLdJS6eEXCxRD6X0YzfWcKk9GkdeGzu7RlZFS_Y2WAqgagSco1v-abO6Qpv61zTxrGzgj0PegsAClUnGvqSKGiLAHlwds
+token=<TOKEN_VAL>
