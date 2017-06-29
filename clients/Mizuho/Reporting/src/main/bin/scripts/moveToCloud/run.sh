@@ -108,15 +108,23 @@ echo  Step 2 Complete: BLUEMIX_OBJECT_STORAGE_TOKEN = $BLUEMIX_OBJECT_STORAGE_TO
 ######## END: Code to compute token for accessing Bluemix Object Storage ###################
 
 ######## STEP3: Set and replace the variables in the files ###################
+SCRIPT_HOME=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud
 PROPERTIES_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
 CREDENTIAL_FILE=creds-bluemix-object-storage.txt
-BATCH_UPLOAD_FILE=batch-csv-upload-template.txt
+BATCH_UPLOAD_FILE=batch-csv-upload.txt
 TOKEN=$BLUEMIX_OBJECT_STORAGE_TOKEN
 CSV_SOURCE_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
 CLOUD_STORAGE_URL=dallas
 STORAGE_CONTAINER=csv_landing_zone
 TEMP_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
+LOG_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
 
+### Get list of file names in CSV_SOURCE_DIR amd create a string
+for entry in "$CSV_SOURCE_DIR"/*
+do
+  csvUploadList="$csvUploadList"$'\r'"$entry /"
+done
+echo CSV file List "$csvUploadList"
 
 ##### Syntax explanation
 #sed = Stream EDitor
@@ -131,13 +139,15 @@ TEMP_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
 # file.txt = the file name
 
 if [ OS=mac ]; then
+  echo "Mac detected"
   # Replace values in the batch-csv-upload-template.txt
-  sed -i '' -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
+  sed -i '' -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g;s,<PLACEHOLDER_UPLOAD_FILES>,$csvUploadList,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
   # Replace TOKEN value in the creds-bluemix-object-storage-template.txt
-  sed -i '' -- "s/<PLACEHOLDER_TOKEN>/$token/g" $PROPERTIES_FOLDER/$CREDENTIAL_FILE
+  sed -i '' -- "s/<PLACEHOLDER_TOKEN>/$TOKEN/g" $PROPERTIES_FOLDER/$CREDENTIAL_FILE
 else
+  echo "Not Mac detected"
   # Replace values in the batch-csv-upload-template.txt
-  sed -i -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
+  sed -i -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g;s,<PLACEHOLDER_UPLOAD_FILES>,$csvUploadList,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
   # Replace TOKEN value in the creds-bluemix-object-storage-template.txt
   sed -i -- "s/<PLACEHOLDER_TOKEN>/$token/g" $PROPERTIES_FOLDER/$CREDENTIAL_FILE
 fi
@@ -146,9 +156,9 @@ echo  Step 3 Complete: Set and replace the variables in the files
 
 ######## END: Set and replace the variables in the files ###################
 
-######## STEP4: Code to get token for accessing Bluemix Object Storage ###################
+######## STEP4: Upload files to object storage ###################
+cd $SCRIPT_HOME
+perl moveToCloud.pl -batch $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE  -debug $LOG_FOLDER/log.txt
 
-
-
-
-######## END: Code to get token for accessing Bluemix Object Storage ###################
+#perl moveToCloud.pl -batch /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/batch-csv-upload.txt  -debug log.txt
+######## END: Upload files to object storage ###################

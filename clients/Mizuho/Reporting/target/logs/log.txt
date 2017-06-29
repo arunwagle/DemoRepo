@@ -1,0 +1,41 @@
+moveToCloud.pl debug file
+--------------------------------------------------------------------------------
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs/log.txt as debug successfully after 0 attempts
+1323: Start time: Thu Jun 29 11:15:49 2017
+1324: Process ID: 69315
+1325: Run mode: batch
+1363: Batch file: /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/batch-csv-upload.txt
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/batch-csv-upload.txt as batch successfully after 0 attempts
+725: got line 17, skipped 16, from tag batch
+1916: start of batch options
+725: got line 25, skipped 7, from tag batch
+1659: batch option key "credentials", value "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/creds-bluemix-object-storage.txt" 
+725: got line 29, skipped 3, from tag batch
+1659: batch option key "sourcedir", value "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone" 
+725: got line 42, skipped 12, from tag batch
+1659: batch option key "service", value "softlayer" 
+725: got line 47, skipped 4, from tag batch
+1659: batch option key "url", value "dallas" 
+725: got line 55, skipped 7, from tag batch
+1659: batch option key "container", value "csv_landing_zone" 
+725: got line 63, skipped 7, from tag batch
+1659: batch option key "nocompression", value "on" 
+1740: Compression disabled.
+725: got line 76, skipped 12, from tag batch
+1659: batch option key "tmpdir", value "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp" 
+725: got line 81, skipped 4, from tag batch
+1659: batch option key "usetoken", value "on" 
+725: got line 88, skipped 6, from tag batch
+1822: end of batch options
+725: got line 90, skipped 1, from tag batch
+1923: start of batch uploads
+725: got line 92, skipped 1, from tag batch
+1870: source: /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv
+1871: line: //Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportSimpleSample.csv /
+391: ERROR: Error parsing batch file line 92: too many fields of upload entry.
+395: Input error. Message:
+Error parsing batch file line 92: too many fields of upload entry.
+263: cleanup called at line 397
+672: closing batch
+306: done cleaning up, closing debug filehandle
+672: closing debug

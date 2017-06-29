@@ -1,0 +1,141 @@
+moveToCloud.pl debug file
+--------------------------------------------------------------------------------
+662: opened log.txt as debug successfully after 0 attempts
+1323: Start time: Thu Jun 29 11:30:42 2017
+1324: Process ID: 69648
+1325: Run mode: batch
+1363: Batch file: /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/batch-csv-upload.txt
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/batch-csv-upload.txt as batch successfully after 0 attempts
+725: got line 17, skipped 16, from tag batch
+1916: start of batch options
+725: got line 25, skipped 7, from tag batch
+1659: batch option key "credentials", value "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/creds-bluemix-object-storage.txt" 
+725: got line 29, skipped 3, from tag batch
+1659: batch option key "sourcedir", value "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/" 
+725: got line 42, skipped 12, from tag batch
+1659: batch option key "service", value "softlayer" 
+725: got line 47, skipped 4, from tag batch
+1659: batch option key "url", value "dallas" 
+725: got line 55, skipped 7, from tag batch
+1659: batch option key "container", value "csv_landing_zone" 
+725: got line 63, skipped 7, from tag batch
+1659: batch option key "nocompression", value "on" 
+1740: Compression disabled.
+725: got line 76, skipped 12, from tag batch
+1659: batch option key "tmpdir", value "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp" 
+725: got line 81, skipped 4, from tag batch
+1659: batch option key "usetoken", value "on" 
+725: got line 88, skipped 6, from tag batch
+1822: end of batch options
+725: got line 90, skipped 1, from tag batch
+1923: start of batch uploads
+725: got line 91, skipped 0, from tag batch
+1870: source: AssetsImportCompleteSample.csv
+1871: line: AssetsImportSimpleSample.csv
+1883: target: AssetsImportSimpleSample.csv
+1902: entry: source = "AssetsImportCompleteSample.csv", target = "AssetsImportSimpleSample.csv"
+725: got line 101, skipped 9, from tag batch
+1857: end of batch uploads
+725: got line -1, skipped 0, from tag batch
+672: closing batch
+903: source1"/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv", basename "AssetsImportCompleteSample.csv"
+958: target1"AssetsImportSimpleSample.csv"
+1988: Batch uploads count: 1
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/creds-bluemix-object-storage.txt as credentials successfully after 0 attempts
+725: got line 33, skipped 32, from tag credentials
+1421: found token in credentials file
+1458: looking for token
+725: got line -1, skipped 0, from tag credentials
+672: closing credentials
+1504: Credentials file valid.
+3400: Setting up Softlayer access ...
+3447: authenticating softlayer with token
+1044: cURL-1: -X HEAD \
+-i \
+-H "X-Auth-Token: gAAAAABZVRmlTsuceTAMIrj0GowTasPF1CLAL3Wp1DxPUkXv_lzazlJfkUDPS3zYKRDLBrHnHySIuEFVaFa7NrWlgWExXByojk-RtFrJGJXSTJImqqLjPMVnwpxOmEBGv5cCbFxPq49vgLs1_KeA1OvzR5_rXortpQTmPPcaH5LmfVpgkMejdhA" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883"
+1085: curl request (3316):
+1099: curl -s -X HEAD -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883
+1117: curl response summary (3316):
+HTTP/1.1 204 No Content
+Content-Length: 0
+X-Timestamp: 1497997485.09063
+X-Trans-Id: txe23ccca33c884b098e32d-0059551d25
+Date: Thu, 29 Jun 2017 15:30:45 GMT
+3458: authentication successful
+3461: checking softlayer container "csv_landing_zone"
+1044: cURL-2: -X GET \
+-i \
+-H "X-Auth-Token: gAAAAABZVRmlTsuceTAMIrj0GowTasPF1CLAL3Wp1DxPUkXv_lzazlJfkUDPS3zYKRDLBrHnHySIuEFVaFa7NrWlgWExXByojk-RtFrJGJXSTJImqqLjPMVnwpxOmEBGv5cCbFxPq49vgLs1_KeA1OvzR5_rXortpQTmPPcaH5LmfVpgkMejdhA" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883?format=json"
+1085: curl request (3326):
+1099: curl -s -X GET -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883?format=json
+1117: curl response summary (3326):
+HTTP/1.1 200 OK
+Content-Length: 125
+X-Timestamp: 1497997485.09063
+X-Trans-Id: tx9ad968a17bc848c1a26b0-0059551d26
+Date: Thu, 29 Jun 2017 15:30:46 GMT
+3517: target url with container name "https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone"
+2488: listing files with prefix ""
+1044: cURL-3: -X GET -i \
+-H "X-Auth-Token: gAAAAABZVRmlTsuceTAMIrj0GowTasPF1CLAL3Wp1DxPUkXv_lzazlJfkUDPS3zYKRDLBrHnHySIuEFVaFa7NrWlgWExXByojk-RtFrJGJXSTJImqqLjPMVnwpxOmEBGv5cCbFxPq49vgLs1_KeA1OvzR5_rXortpQTmPPcaH5LmfVpgkMejdhA" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100"
+1085: curl request (3339):
+1099: curl -s -X GET -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100
+1117: curl response summary (3339):
+HTTP/1.1 200 OK
+Content-Length: 18
+X-Timestamp: 1498232796.73263
+X-Trans-Id: tx060b4a06cc7c4ba690208-0059551d26
+Date: Thu, 29 Jun 2017 15:30:46 GMT
+1044: cURL-4: -X GET -i \
+-H "X-Auth-Token: gAAAAABZVRmlTsuceTAMIrj0GowTasPF1CLAL3Wp1DxPUkXv_lzazlJfkUDPS3zYKRDLBrHnHySIuEFVaFa7NrWlgWExXByojk-RtFrJGJXSTJImqqLjPMVnwpxOmEBGv5cCbFxPq49vgLs1_KeA1OvzR5_rXortpQTmPPcaH5LmfVpgkMejdhA" \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100&marker=WIKI_20160830.csv"
+1085: curl request (3339):
+1099: curl -s -X GET -i -H "X-Auth-Token: ***MASKED***" https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone?prefix=&limit=100&marker=WIKI_20160830.csv
+1117: curl response summary (3339):
+HTTP/1.1 204 No Content
+Content-Length: 0
+X-Timestamp: 1498232796.73263
+X-Trans-Id: tx681d8176e73d43eeac0ff-0059551d26
+Date: Thu, 29 Jun 2017 15:30:46 GMT
+2497: list of files with prefix "":
+WIKI_20160830.csv
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv as source successfully after 0 attempts
+4022: Starting upload process for /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv to AssetsImportSimpleSample.csv
+4364: U001P001: source chunk name "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp/149875024269648.001/AssetsImportCompleteSample.csv_001"
+4377: U001P001: target part name "AssetsImportSimpleSample.csv.parts/AssetsImportSimpleSample.csv_001"
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp/149875024269648.001/AssetsImportCompleteSample.csv_001 as U001P001 successfully after 0 attempts
+672: closing U001P001
+4085: U001P001: wrote 3245 to "/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp/149875024269648.001/AssetsImportCompleteSample.csv_001"
+4098: Source "AssetsImportCompleteSample.csv" small enough for single upload.
+3959: uploading /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv(3245 bytes) to AssetsImportSimpleSample.csv
+3734: put /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv to AssetsImportSimpleSample.csv
+662: opened /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv as md5 successfully after 0 attempts
+672: closing md5
+1044: cURL-5: -X PUT -i \
+-H "X-Auth-Token: gAAAAABZVRmlTsuceTAMIrj0GowTasPF1CLAL3Wp1DxPUkXv_lzazlJfkUDPS3zYKRDLBrHnHySIuEFVaFa7NrWlgWExXByojk-RtFrJGJXSTJImqqLjPMVnwpxOmEBGv5cCbFxPq49vgLs1_KeA1OvzR5_rXortpQTmPPcaH5LmfVpgkMejdhA" \
+-H "ETag: b64484fd6dfca0bd374e8dbc5d0faba2" \
+-T /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv \
+"https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone/AssetsImportSimpleSample.csv"
+1085: curl request (3773):
+1099: curl -s -X PUT -i -H "X-Auth-Token: ***MASKED***" -H "ETag: b64484fd6dfca0bd374e8dbc5d0faba2" -T /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/AssetsImportCompleteSample.csv https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_landing_zone/AssetsImportSimpleSample.csv
+1117: curl response summary (3773):
+HTTP/1.1 100 Continue
+HTTP/1.1 201 Created
+Content-Length: 0
+X-Trans-Id: tx7cb272b051914c40947db-0059551d27
+Date: Thu, 29 Jun 2017 15:30:47 GMT
+3792: put AssetsImportSimpleSample.csv successful
+4307: finished 1 uploads, total size 0 bytes
+4322: Successfully uploaded to "AssetsImportSimpleSample.csv"
+4426: Cleaning up upload 001
+672: closing source
+4473: removed /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp/149875024269648.001/AssetsImportCompleteSample.csv_001 from upload tmpdir
+4477: done cleaning up from upload 001
+4932: Upload 1 rc = 0
+4955: Completed 1 uploads successfully (out of 1).
+263: cleanup called at line 4963
+306: done cleaning up, closing debug filehandle
+672: closing debug

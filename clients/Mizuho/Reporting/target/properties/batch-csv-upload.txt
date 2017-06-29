@@ -22,11 +22,11 @@
 #
 
 #
-credentials=<PLACEHOLDER_CREDENTIALS>
+credentials=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/creds-bluemix-object-storage.txt
 #    The credentials file name and path. Refer to the sample credentials file that is included with moveToCloud.
 #    Example: credentials=auths
 #
-sourcedir=<PLACEHOLDER_SOURCEDIR>
+sourcedir=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone/
 
 #    A local directory to use as a default path for the source files identified in the UPLOADS parameters.
 #    The sourcedir path is prepended to source file paths entered in the UPLOADS parameters.
@@ -44,7 +44,7 @@ service=softlayer
 #    Use the -list option to see a listing of supported services.
 #    Example: service=s3
 #
-url=<PLACEHOLDER_URL>
+url=dallas
 #    Required. The URL of the cloud storage service or one of the supported service tag values.
 #    If SoftLayer token authentication is used, the URL refers to the object storage endpoint URL.
 #    Use the -list option to see a listing of service tag values.
@@ -52,7 +52,7 @@ url=<PLACEHOLDER_URL>
 #    Example with URL: url=s3-ap-southeast-2.amazonaws.com
 #    Example clear with SoftLayer object storage endpoint: url=https://dal05.objectstorage.softlayer.net/v1/AUTH_user1
 #
-container=<PLACEHOLDER_CONTAINER>
+container=csv_landing_zone
 #    Required. The target container or bucket name on the cloud storage service.
 #    Example: container=data_bucket
 #
@@ -73,7 +73,7 @@ nocompression=on
 #    off - Continue if an upload fails.
 #    Example: errorexit=off
 #
-tmpdir=<PLACEHOLDER_TMPDIR>
+tmpdir=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
 #    Temporary work area directory.
 #    All temporary files that are created by the script will be stored in this directory and will be deleted after use.
 #    Example: tmpdir=/temp
@@ -88,7 +88,7 @@ usetoken=on
 ==OPTIONS_END==
 
 ==UPLOADS_START==
-<PLACEHOLDER_SOURCE_FILES> <PLACEHOLDER_TARGET_FILES>
+AssetsImportCompleteSample.csv AssetsImportSimpleSample.csv
 #
 #    The names and paths of the source and target files in the format <source> <target>.
 #    The target value can be a file name or a directory (if the value ends with a "/").  If a file name is not specified for the target value,

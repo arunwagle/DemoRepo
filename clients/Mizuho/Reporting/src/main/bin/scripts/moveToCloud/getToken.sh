@@ -62,10 +62,22 @@ echo $OS
 
 PROPERTIES_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
 CREDENTIAL_FILE=creds-bluemix-object-storage.txt
+CSV_SOURCE_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
 
+# if [ OS=mac ]; then
+# sed -i '' -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<TOKEN_VAL1>,$CREDENTIAL_FILE,g;" /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud/creds-bluemix-object-storage.txt
+# else
+# sed -i -- "s,<TOKEN_VAL>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<TOKEN_VAL1>,$CREDENTIAL_FILE,g;" /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud/creds-bluemix-object-storage.txt
+# fi
 
-if [ OS=mac ]; then
-sed -i '' -- "s,<TOKEN_VAL>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<TOKEN_VAL1>,$CREDENTIAL_FILE,g;" /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud/creds-bluemix-object-storage.txt
-else
-sed -i -- "s,<TOKEN_VAL>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<TOKEN_VAL1>,$CREDENTIAL_FILE,g;" /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud/creds-bluemix-object-storage.txt
-fi
+for entry in "$CSV_SOURCE_DIR"/*
+do
+  body="$body"$'\r'"$entry /"
+
+done
+echo body="$body"
+
+# a=$(echo $body | sed "s/\\r//g")
+# echo $a
+
+sed -i '' -- "s,<TOKEN_VAL>,$body,g" /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud/creds-bluemix-object-storage.txt
