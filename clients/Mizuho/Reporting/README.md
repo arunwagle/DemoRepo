@@ -1,4 +1,5 @@
-[<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Mizuho_header.png">]
+<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Mizuho_header.png">
+
 # Description
 
 # Architecture
