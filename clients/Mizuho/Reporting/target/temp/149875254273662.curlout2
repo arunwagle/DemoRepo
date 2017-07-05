@@ -1,0 +1,51 @@
+== Info:   Trying 173.192.119.114...
+== Info: Connected to dal.objectstorage.open.softlayer.com (173.192.119.114) port 443 (#0)
+== Info: TLS 1.2 connection using TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+== Info: Server certificate: dal.objectstorage.open.softlayer.com
+== Info: Server certificate: RapidSSL SHA256 CA
+== Info: Server certificate: GeoTrust Global CA
+=> Send header, 351 bytes (0x15f)
+0000: GET /v1/AUTH_9f2108032c4e44119f41ba96e9d83883?format=json HTTP/1
+0040: .1
+0044: Host: dal.objectstorage.open.softlayer.com
+0070: User-Agent: curl/7.43.0
+0089: Accept: */*
+0096: X-Auth-Token: gAAAAABZVRmlTsuceTAMIrj0GowTasPF1CLAL3Wp1DxPUkXv_l
+00d6: zazlJfkUDPS3zYKRDLBrHnHySIuEFVaFa7NrWlgWExXByojk-RtFrJGJXSTJImqq
+0116: LjPMVnwpxOmEBGv5cCbFxPq49vgLs1_KeA1OvzR5_rXortpQTmPPcaH5LmfVpgkM
+0156: ejdhA
+015d: 
+<= Recv header, 17 bytes (0x11)
+0000: HTTP/1.1 200 OK
+<= Recv header, 21 bytes (0x15)
+0000: Content-Length: 125
+<= Recv header, 27 bytes (0x1b)
+0000: X-Account-Object-Count: 2
+<= Recv header, 54 bytes (0x36)
+0000: X-Account-Storage-Policy-Standard-Container-Count: 2
+<= Recv header, 31 bytes (0x1f)
+0000: X-Timestamp: 1497997485.09063
+<= Recv header, 51 bytes (0x33)
+0000: X-Account-Storage-Policy-Standard-Object-Count: 2
+<= Recv header, 32 bytes (0x20)
+0000: X-Account-Bytes-Used: 99279455
+<= Recv header, 30 bytes (0x1e)
+0000: X-Account-Container-Count: 2
+<= Recv header, 47 bytes (0x2f)
+0000: Content-Type: application/json; charset=utf-8
+<= Recv header, 22 bytes (0x16)
+0000: Accept-Ranges: bytes
+<= Recv header, 56 bytes (0x38)
+0000: X-Account-Storage-Policy-Standard-Bytes-Used: 99279455
+<= Recv header, 63 bytes (0x3f)
+0000: x-account-project-domain-id: 42811a9a4b9d4fdd8e7140aaee1fabe1
+<= Recv header, 48 bytes (0x30)
+0000: X-Trans-Id: txcbf2a3bedb1f4d18823e9-0059552623
+<= Recv header, 37 bytes (0x25)
+0000: Date: Thu, 29 Jun 2017 16:09:07 GMT
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 125 bytes (0x7d)
+0000: [{"count": 2, "bytes": 99279455, "name": "csv_landing_zone"}, {"
+0040: count": 0, "bytes": 0, "name": "csv_processed_landing_zone"}]
+== Info: Connection #0 to host dal.objectstorage.open.softlayer.com left intact

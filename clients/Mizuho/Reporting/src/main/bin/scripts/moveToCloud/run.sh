@@ -118,13 +118,24 @@ CLOUD_STORAGE_URL=dallas
 STORAGE_CONTAINER=csv_landing_zone
 TEMP_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
 LOG_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
-
+UPLOAD_START_TAG="==UPLOADS_START=="
+UPLOAD_END_TAG="==UPLOADS_END=="
+DELIMITER=";"
 ### Get list of file names in CSV_SOURCE_DIR amd create a string
 for entry in "$CSV_SOURCE_DIR"/*
 do
-  csvUploadList="$csvUploadList"$'\r'"$entry /"
+  #csvUploadList="$csvUploadList"$'\r'"$UPLOAD_START_TAG"$'\r'"$entry"$'\r'"$UPLOAD_END_TAG"
+  # csvUploadList="$csvUploadList""$entry"$'\r'" "
+  fileNameWithoutFolder=$(basename $entry)
+  csvUploadList="$csvUploadList$fileNameWithoutFolder$DELIMITER"
+
+
+
 done
-echo CSV file List "$csvUploadList"
+echo CSV file List printf "$csvUploadList"
+
+#a=$(echo $csvUploadList | sed 's/ /\n/g')
+#echo $a
 
 ##### Syntax explanation
 #sed = Stream EDitor

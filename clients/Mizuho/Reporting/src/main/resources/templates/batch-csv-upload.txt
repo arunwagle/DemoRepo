@@ -33,7 +33,7 @@ sourcedir=<PLACEHOLDER_SOURCEDIR>
 #    The path is relative to the location of the moveToCloud script.
 #    Example: sourcedir=data/
 #
-# targetdir=
+targetdir=/
 
 #    A directory to use as a default path for the target files identified in the UPLOADS parameters.
 #    The targetdir path is prepended to target file paths entered in the UPLOADS parameters.
@@ -88,9 +88,7 @@ usetoken=on
 ==OPTIONS_END==
 
 ==UPLOADS_START==
-
 <PLACEHOLDER_UPLOAD_FILES>
-
 #
 #    The names and paths of the source and target files in the format <source> <target>.
 #    The target value can be a file name or a directory (if the value ends with a "/").  If a file name is not specified for the target value,

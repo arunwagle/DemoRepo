@@ -1807,11 +1807,6 @@ sub parseBatch
   my $batch = MoveToCloud::Inputs->new();
   $self->{'uploads'} = [];
 
-  # Arun
-  my $isUploadsDelimited = 1;  # isDelimited se
-  my $delimiter = ";";  # isDelimited se
-
-
   # Go through the file one line at a time
   while( ($line, $lineNumber) = $util->getLine( "batch" ) )
   {
@@ -1906,21 +1901,9 @@ sub parseBatch
         }
         $util->printDebug( $debugStr );
 
-        #Arun
-        if($isUploadsDelimited){
-          my @sourceList = split /;/, $source;
-          foreach(@sourceList)
-          {
-              $util->printDebug("$_");
-              my $upload = MoveToCloud::BatchUpload->new($_, $target);
-              push( @{$self->{'uploads'}}, $upload );
-          }
-        }
-        else{
-          # Store the upload entry as a new object in the batch uploads array
-          my $upload = MoveToCloud::BatchUpload->new($source, $target);
-          push( @{$self->{'uploads'}}, $upload );
-        }
+        # Store the upload entry as a new object in the batch uploads array
+        my $upload = MoveToCloud::BatchUpload->new($source, $target);
+        push( @{$self->{'uploads'}}, $upload );
       }
       else
       {
