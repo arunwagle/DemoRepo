@@ -5,14 +5,12 @@ Mizuho does not have the means to automatically process and report during the da
 
 # Architecture
 
-
-##Experience the IBM Watson DataWorks Project
-###Where teams can collaboratively work together...
-
-[<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Mizuho_header.png">]
+[<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Mizuho-architecture.png">]
 
 
 ### High Level Flow
+
+
 ##[Business Analyst Lab - Click Here](https://github.com/ibmdataworks/datafirst/raw/master/businessanalyst/)
 As a Business Analyst, you need to analyze, discover and visiualize business data to derive insights.
 Perform this hands-on lab using guided exploration capabilities on customer transaction data to uncover unique insights about product affinities.
