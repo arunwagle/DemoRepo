@@ -7,7 +7,6 @@ Mizuho does not have the means to automatically process and report during the da
 
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Mizuho-architecture.png">
 
-
 ### High Level Flow
 
 
