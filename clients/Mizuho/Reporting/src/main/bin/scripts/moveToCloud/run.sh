@@ -169,7 +169,9 @@ echo  Step 3 Complete: Set and replace the variables in the files
 
 ######## STEP4: Upload files to object storage ###################
 cd $SCRIPT_HOME
+# Run batch upload
 perl moveToCloud.pl -batch $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE  -debug $LOG_FOLDER/log.txt
 
-#perl moveToCloud.pl -batch /Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties/batch-csv-upload.txt  -debug log.txt
+# Run single upload
+#perl moveToCloud.pl -source ../../data/AssetsImportCompleteSample.csv -target softlayer::dallas::csv_landing_zone::AssetsImportCompleteSample.csv -creds creds-bluemix-object-storage.txt -tmpdir temp -threads 6 -debug log.txt -token -nocompression
 ######## END: Upload files to object storage ###################
