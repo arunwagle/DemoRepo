@@ -7,7 +7,10 @@ You can refer to [moveToCloud readme](https://www.ibm.com/support/knowledgecente
 
 # Setup
 #### Important files
-* prepare.sh : Modify the file to update as per your environment
+
+Modify the file to update as per your environment
+
+* prepare.sh
   - SOURCE_CSV_FOLDER : Source location for all the CSV files on the local system
   
   - CSV_LANDING_ZONE_FOLDER : Landing zone for CSV files from which we move the files to the Object storage
@@ -33,7 +36,11 @@ You can refer to [moveToCloud readme](https://www.ibm.com/support/knowledgecente
   - UPLOAD_END_TAG="==UPLOADS_END=="
   - DELIMITER=";"
 
-* moveToCloud.pl
+* moveToCloud.pl: Perl script to upload the data to object storage. 
+  - search and replace "softlayer_urls". For e.g. I modified **'dallas'** to point to my instance of object storage "https://dal.objectstorage.open.softlayer.com/v1/AUTH_xxxxxx"
+  - The original script has been modified to add **$delimiter** code.
+  
+  
 
 
 
