@@ -1,11 +1,11 @@
 
-# moveToCloud script
+# moveToCloud module
 The purpose of this module is to upload the file to the IBM Bluemix Object Storage. This script is modified from its original download for the purpose of this use case.
 
 You can refer to [moveToCloud readme](https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.doc/learn_how/moveToCloud_readme.html) for details on the script.
 
-# Run the script to upload 
-All data needed to run are generated under the target folder.
+# Run
+All data needed to run are generated under the target folder. **Please refer to setup section before running the script.**
 
 * Run ./prepare.sh. This prepares the environmen
 * Run ./run.sh. The script does the following
@@ -45,7 +45,7 @@ Modify the file to update as per your environment
 
 * moveToCloud.pl: Perl script to upload the data to object storage. 
   #### Description
-  The script requires 2 files for it to work viz. batch-csv-upload.txt & creds-bluemix-object-storage.txt
+  The script requires 2 files for it to work viz. batch-csv-upload.txt & creds-bluemix-object-storage.txt. These files are generated a part of running the ** prepare.sh ** and ** run.sh **. The files above are generated using the templates, refer to files in SOURCE_TEMPLATE_FOLDER location.  
 
   - search and replace "softlayer_urls". For e.g. I modified **'dallas'** to point to my instance of object storage "https://dal.objectstorage.open.softlayer.com/v1/AUTH_xxxxxx"
   - The original script has been modified to add **$delimiter** code.
