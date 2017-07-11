@@ -5,7 +5,9 @@ The purpose of this module is to upload the file to the IBM Bluemix Object Stora
 You can refer to [moveToCloud readme](https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.doc/learn_how/moveToCloud_readme.html) for details on the script.
 
 # Run
-All data needed to run are generated under the target folder. **Please refer to setup section before running the script.**
+All data needed to run are generated under the target folder. 
+
+**Note: Please refer to setup section before running the script.**
 
 * Run ./prepare.sh. This prepares the environmen
 * Run ./run.sh. The script does the following
@@ -41,7 +43,7 @@ Modify the file to update as per your environment
   - LOG_FOLDER: Log folder location
   - UPLOAD_START_TAG="==UPLOADS_START=="
   - UPLOAD_END_TAG="==UPLOADS_END=="
-  - DELIMITER=";"
+  - DELIMITER=";" ** if you change this then the code needs to be changed **
 
 * moveToCloud.pl: Perl script to upload the data to object storage. 
   #### Description
