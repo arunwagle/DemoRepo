@@ -28,8 +28,17 @@
 
 
 # Setup DataConnect in Bluemix
+- Login to Bluemix & Add Data Connect Service.
+- Launch the Data Connect Application and learn how to create source and target connections, activities, Design Flow
+- Design Flow helps you to map source to target at a column level.
 
-# Setup DataConnect in Bluemix
+# Setup DashDB in Bluemix
+- Login to Bluemix & Add Dash DB Service.
+- Learn how to run SQL, create tables 
+
+# Setup Object Storage in Bluemix
+- Login to Bluemix & Add Object Storage  Service.
+- Learn how to create containers and upload files to the containers. 
 
 
 
