@@ -11,11 +11,11 @@ Mizuho does not have the means to automatically process and report during the da
 ### Setup Process
 - Refer to [Setup guidelines for this project](setupdoc.md)
 ### Move CSV files to object storage
-  This is a 2 steps process. The first step is to setup the script that will be used to upload the files. The second step will be to configure a scheduled job yto run the script
+  This is a 2 steps process. The first step is to setup the script that will be used to upload the files. The second step will be to configure a scheduled job to run the script
   - Refer to [Setup the scripts required to upload the files](src/main/bin/scripts/moveToCloud/README.md)
-  - Refer to [Use Workflow Scheduler to create jobs to upload CSV files to Object Storage]
+  - Refer to [Use Workflow Scheduler to create jobs to upload CSV files to Object Storage](WorkflowScheduler.md)
 ### Create DashDB tables from the Object Storage CSV files using Data Connect
-- Refer to [Using Data Connect to design data flow between Object Storage and DashDB, schedule jobs]
+- Refer to [Using Data Connect to design data flow between Object Storage and DashDB, schedule jobs](DataConnect.md)
 ### Create reports using Cognos Analytics.
-- Refer to [Using Cognos analytics to generate reports]
+- Refer to [Using Cognos analytics to generate reports](CognosAnalytics.md)
 
