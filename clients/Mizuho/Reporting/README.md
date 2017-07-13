@@ -8,9 +8,14 @@ Mizuho does not have the means to automatically process and report during the da
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Mizuho-architecture.png">
 
 # Demo Steps
-
+### Setup Process
 - Refer to [Setup guidelines for this project](setupdoc.md)
-- Refer to [Use Workflow Scheduler to create jobs to upload CSV files to Object Storage]
+### Move CSV files to object storage
+  This is a 2 steps process. The first step is to setup the script that will be used to upload the files. The second step will be to configure a scheduled job yto run the script
+  - Refer to [Setup the scripts required to upload the files]
+  - Refer to [Use Workflow Scheduler to create jobs to upload CSV files to Object Storage]
+### Create DashDB tables from the Object Storage CSV files using Data Connect
 - Refer to [Using Data Connect to design data flow between Object Storage and DashDB, schedule jobs]
+### Create reports using Cognos Analytics.
 - Refer to [Using Cognos analytics to generate reports]
 
