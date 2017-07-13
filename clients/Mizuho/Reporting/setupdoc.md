@@ -40,5 +40,5 @@
 - Login to Bluemix & Add Object Storage  Service.
 - Learn how to create containers and upload files to the containers. 
 
-
-
+# Setup Cognos Analytics
+- Once you have subscription to Cognos Analytics on Cloud,login to https://www.ibm.com/analytics/us/en/technology/products/cognos-analytics/
