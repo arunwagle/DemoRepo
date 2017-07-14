@@ -18,7 +18,15 @@
   - Note: Each service in Bluemix has a "Service Credentials" section. You will need information from that to create a connection.
   
 ### Create Data Flow Design, this will create an activity
-
+- You have launched Data Connect from Bluemix.
+- Select "Design Flow" from the menu
+- Add Source
+  - While adding source you can select configure the data source. Some of the things you can do is change columns name, datatype etc.
+  - Once you add the source you can also do certain cleanse operation, change schema, prepare data set etc
+  - You can add multiple sources
+- Add target
+  - While adding target, select "Append to the table" and click on "Launch Mapping". This will map the source to the target columns
+  
 
 
   
