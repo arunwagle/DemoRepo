@@ -11,5 +11,14 @@
   - Note: SQL files are located in $REPO_HOME/clients/Mizuho/Reporting/src/main/bin/scripts/sql
   
 ### Create Source and Target Connections 
+- Launch Data Connect from Bluemix.
+- Create "New Connection" to **Bluemix Object Storage**. This process is self explanatory. 
+  - Note: Each service in Bluemix has a "Service Credentials" section. You will need information from that to create a connection.
+- Create "New Connection" to **DashDB**. This process is self explanatory.   
+  - Note: Each service in Bluemix has a "Service Credentials" section. You will need information from that to create a connection.
+  
+### Create Data Flow Design, this will create an activity
+
+
 
   
