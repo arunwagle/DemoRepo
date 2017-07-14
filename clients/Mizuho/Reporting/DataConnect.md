@@ -26,6 +26,10 @@
   - You can add multiple sources
 - Add target
   - While adding target, select "Append to the table" and click on "Launch Mapping". This will map the source to the target columns
+
+### Schedule the activity to run daily
+- Run immediately OR
+- Schedule to run at a particular interval.
   
 
 
