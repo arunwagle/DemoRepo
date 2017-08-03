@@ -51,7 +51,7 @@ Modify the file to update as per your environment
   - search and replace "softlayer_urls". For e.g. I modified **'dallas'** to point to my instance of object storage "https://dal.objectstorage.open.softlayer.com/v1/AUTH_xxxxxx"  
 Note: How to find the AUTH url ?
 Refer to the diagram
-
+<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Auth_url_Construction.png">
 OR
 Refer to 
 https://console.bluemix.net/docs/services/ObjectStorage/os_authenticate.html
