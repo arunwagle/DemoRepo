@@ -48,8 +48,14 @@ Modify the file to update as per your environment
 * moveToCloud.pl: Perl script to upload the data to object storage. 
   #### Description
   The script requires 2 files for it to work viz. batch-csv-upload.txt & creds-bluemix-object-storage.txt. These files are generated a part of running the ** prepare.sh ** and ** run.sh **. The files above are generated using the templates, refer to files in SOURCE_TEMPLATE_FOLDER location.  
+  - search and replace "softlayer_urls". For e.g. I modified **'dallas'** to point to my instance of object storage "https://dal.objectstorage.open.softlayer.com/v1/AUTH_xxxxxx"  
+Note: How to find the AUTH url ?
+Refer to the diagram
 
-  - search and replace "softlayer_urls". For e.g. I modified **'dallas'** to point to my instance of object storage "https://dal.objectstorage.open.softlayer.com/v1/AUTH_xxxxxx"
+OR
+Refer to 
+https://console.bluemix.net/docs/services/ObjectStorage/os_authenticate.html
+
   - The original script has been modified to add **$delimiter** code.
   
 
