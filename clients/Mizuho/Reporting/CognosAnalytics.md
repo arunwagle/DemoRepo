@@ -23,3 +23,7 @@
 - Select "New" > "Data Servers" > "DB2WarehouseDataServerConnection"  > "Your Schema" and click on "Start" 
 - Select the "Your Schema" > "Table name" (E.g. Mortgage Report New) and drag to the "New Data Module" panel.
 - Select "Save" from the top left menu to save the data module. Save the data module in the folder create in "My Content" above.
+
+
+### Create reports 
+
