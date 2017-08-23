@@ -51,10 +51,11 @@
 - Some examples of common reports are "Crosstab reports", "Visualizations", "Maps", "Active Reports"
 - Refer to docs [IBM Cognos Analytics - Reporting](http://public.dhe.ibm.com/software/data/cognos/documentation/docs/en/11.0.0/ug_cr_rptstd.pdf)
 - In this example we have ceated 3 types of reports "Crosstab", "Visualization", "List Report"
-- Fig1 : Cross tab report
+- Fig1 : Cross tab report (Edit and Output mode)
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Crosstab_Edit.png"> <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Crosstab_Html_Output.png">
 
-- Fig2: Visualization reports
-
+- Fig2: Visualization reports (Loan Type by year,Loan Type by CA, NY, NJ, Loan Type by groups)
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/Visualization_Html_Output.png">
 
 ### Administration/management tasks
 Few useful admin tasks.
