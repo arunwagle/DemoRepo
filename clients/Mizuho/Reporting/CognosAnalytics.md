@@ -33,16 +33,17 @@
 - This will be mainly used to design your OLAP kind queries for reporting.
 - Refer to [IBM Cognos Framework Manager](http://public.dhe.ibm.com/software/data/cognos/documentation/docs/en/11.0.0/ug_fm.pdf )for more details.
 - High Level Steps
-- [x] Create new project
-- [x] Connect to data source (in this case DB2Warehouse on cloud)
-- [x] Load meta data. By defult it will create Query Subjects on the schema selected. 
-- [x] Create new query subjects, calculations, dimensions etc required for your business
-- [x] Publish the package
-- [x] Create reports
-Fig1 : 
+  - [x] Create new project
+  - [x] Connect to data source (in this case DB2Warehouse on cloud)
+  - [x] Load meta data. By defult it will create Query Subjects on the schema selected. 
+  - [x] Create new query subjects, calculations, dimensions etc required for your business
+  - [x] Publish the package
+  - [x] Create reports
+
+- Fig1 : 
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Frameworkmanager_step0.png">
 
-Fig2 : 
+- Fig2 : 
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Frameworkmanager_step1.png">
 
 ### Create reports 
@@ -57,9 +58,9 @@ Few useful admin tasks.
 - Notifications panel
 - Scheduling reports to be emailed, run at specific times
 - User management
-Fig1: 
+- Fig1: 
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Notifications.png">
-Fig2: 
+- Fig2: 
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Subscribe.png">
 
 
