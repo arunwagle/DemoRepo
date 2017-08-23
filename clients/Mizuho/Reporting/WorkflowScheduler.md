@@ -10,7 +10,12 @@
 - Once the service is provisioned you should see a "Launch" button
 
 ### Setting up system for hybrid jobs
-Refer to "Setup Workload Scheduler for Hybrid Clould" in [Setup](https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/Reporting/setupdoc.md)
-
+- Refer to **"Setup Workload Scheduler for Hybrid Clould"** in [Setup](https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/Reporting/setupdoc.md)
+- Following operating systems are supported
+  - Linux
+  - Windows
+  - AIX
+  - HP-UX
+  - IBM i
 ### Scheduling Hybrid Jobs
 - Launch the Schedule from the 
