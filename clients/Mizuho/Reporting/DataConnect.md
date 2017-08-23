@@ -3,6 +3,7 @@
 - [x] Create Source and Target Connections 
 - [x] Create Data Flow Design, this will create an activity
 - [x] Schedule the activity to run daily
+- [x] Figures
 
 ### Create table in DashDB using the SQL scripts
 - Launch DashDB console from Bluemix.
@@ -31,6 +32,11 @@
 - Run immediately OR
 - Schedule to run at a particular interval.
   
-
-
+### Figures
+- Fig 1: Activity Screen
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/DC_Activity.png">
+- Fig 2: Data Flow Diagram Screen
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/DC_DFD.png">
+- Fig 3: Status Screen
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/DC_Spark.png">
   
