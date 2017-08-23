@@ -18,4 +18,12 @@
   - HP-UX
   - IBM i
 ### Scheduling Hybrid Jobs
-- Launch the Schedule from the 
+- Launch the Scheduler from the Bluemix services
+- 1: Create a new process library
+  
+- 2: Create a new process
+- 3: Specify Triggers (Schedule)
+- 4: Create Steps
+  - a: Create a remote step to run prepare.sh
+  - b: Create a remote step to run run.sh. This will upload the CSV to object storage
+- 5: Enable the process
