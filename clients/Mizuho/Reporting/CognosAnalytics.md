@@ -6,7 +6,7 @@
 - [x] Optional Step- Create a package using IBM Cognos Framework Manager
 - [x] Create reports 
 - [x] Administration tasks 
-- [x] [Documentation Link[(http://www-01.ibm.com/support/docview.wss?uid=swg27047187)
+- [x] [Documentation Link](http://www-01.ibm.com/support/docview.wss?uid=swg27047187)
 
 ### Launch Cognos Analytics on cloud.
 - Signup for trial or if you already have purchased CA on cloud, login using the userid and password.
