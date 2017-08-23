@@ -8,7 +8,7 @@
 - [x] Administration tasks 
 
 ### Launch Cognos Analytics on cloud.
-- Signup for trial or if you already have purchased CA on cloud, just login using the userid and password.
+- Signup for trial or if you already have purchased CA on cloud, login using the userid and password.
 
 ### Create connections to DB2 Warehouse on cloud
 - Select "Manage" > "Data Server Connections" from left hand side menu 
