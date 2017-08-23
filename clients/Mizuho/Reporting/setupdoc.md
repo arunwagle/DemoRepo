@@ -32,7 +32,7 @@
 - Launch the Data Connect Application and learn how to create source and target connections, activities, Design Flow
 - Design Flow helps you to map source to target at a column level.
 
-# Setup DashDB in Bluemix
+# Setup DB2 Warehouse On Cloud in Bluemix
 - Login to Bluemix & Add Dash DB Service.
 - Learn how to run SQL, create tables 
 
