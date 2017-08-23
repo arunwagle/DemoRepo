@@ -41,16 +41,20 @@
   - [x] Create reports
 
 - Fig1 : 
-<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Frameworkmanager_step0.png">
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Frameworkmanager_step0.png">
 
 - Fig2 : 
-<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Frameworkmanager_step1.png">
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Frameworkmanager_step1.png">
 
 ### Create reports 
 - Once the data is setup, you are ready to create reports
 - Some examples of common reports are "Crosstab reports", "Visualizations", "Maps", "Active Reports"
 - Refer to docs [IBM Cognos Analytics - Reporting](http://public.dhe.ibm.com/software/data/cognos/documentation/docs/en/11.0.0/ug_cr_rptstd.pdf)
 - In this example we have ceated 3 types of reports "Crosstab", "Visualization", "List Report"
+- Fig1 : Cross tab report
+
+- Fig2: Visualization reports
+
 
 ### Administration/management tasks
 Few useful admin tasks.
@@ -58,9 +62,9 @@ Few useful admin tasks.
 - Notifications panel
 - Scheduling reports to be emailed, run at specific times
 - User management
-- Fig1: 
-<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Notifications.png">
-- Fig2: 
+- Fig1: Notifications
+  <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Notifications.png">
+- Fig2: Scheduling
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Mizuho/images/CA_Subscribe.png">
 
 
