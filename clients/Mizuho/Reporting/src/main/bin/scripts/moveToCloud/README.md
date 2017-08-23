@@ -43,7 +43,7 @@ Modify the file to update as per your environment
   - LOG_FOLDER: Log folder location
   - UPLOAD_START_TAG="==UPLOADS_START=="
   - UPLOAD_END_TAG="==UPLOADS_END=="
-  - DELIMITER=";" ** if you change this then the code needs to be changed **
+  - DELIMITER=";" ** if you change this then the code in moveToCloud.pl needs to be changed **
 
 * moveToCloud.pl: Perl script to upload the data to object storage. 
   #### Description
@@ -56,7 +56,7 @@ OR
 Refer to 
 https://console.bluemix.net/docs/services/ObjectStorage/os_authenticate.html
 
-  - The original script has been modified to add **$delimiter** code.
+  - The original script has been modified to add **$delimiter** code. This step was done because of the fact that the default newlines were not being handled correctly in the batch-csv-upload.txt file. The delimiter signifies the end of each source and target CSV record.
   
 
   
