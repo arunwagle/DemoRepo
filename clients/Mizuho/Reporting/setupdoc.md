@@ -13,11 +13,11 @@
   3. For Linux 64 bit, extract the SCWA-SaaS_LINUX_X86_64.zip
   4. When the extraction completes, the following directory structure is created in the SCWA-SaaS directory on your computer
   5. From a shell on the computer on which you want to install the product, log on as root.
-      ./installAgent.sh -new [-uname user_name] -acceptlicense yes
+      ./installAgent.sh -new [-uname user_name] -acceptlicense yes -skipcheckprereq
       where uname user_name
       - If you logged in as the root user, it is the name of the user for which the agent is installed. This is the user you created in the previous step. Do not confuse this name with the user performing the installation logged on as root, or with the user name you received by email when you requested your subscription.
       - If you logged in as another user, you do not need to specify this keyword as it automatically takes the login name.
-      
+      - skipcheckprereq - Required as sometimes the install fails with some checks.
   6. The agent is installed in home_dir/TWA directory or /opt/IBM/TWA_user_name. 
   7. Ensure that the directory permission of home_dir is set to 755 and that your login owns it
   
