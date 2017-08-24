@@ -30,7 +30,7 @@ Modify the file to update as per your environment
   
 * run.sh
   - BLUEMIX_OBJECT_STORAGE_AUTH_URL: Your URL for the Bluemix Object Storage
-  - AUTH_PARAMS: Your URL for the Bluemix Object Storage
+  - AUTH_PARAMS: Your Auth parameters Bluemix Object Storage. Replace userId, password & projectId to match the credential of your Bluemix object storage. 
   - SCRIPT_HOME: Location of the scripts folder
   - PROPERTIES_FOLDER: Location of the property files.
   - CREDENTIAL_FILE: Stores dynamically generated token for accessing Bluemix Object storage to be uploaded.
