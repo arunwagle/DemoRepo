@@ -4,6 +4,15 @@ The purpose of this module is to upload the file to the IBM Bluemix Object Stora
 
 You can refer to [moveToCloud readme](https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.doc/learn_how/moveToCloud_readme.html) for details on the script.
 
+# Pre-requisites
+Install as root
+- yum install perl
+- yum install cpan
+- moveToCloud.pl script needs the following to run successfully
+  Run ** cpan URI::Escape **
+  Run ** cpan Digest::MD5 **
+
+
 # Run
 All data needed to run are generated under the target folder. 
 
