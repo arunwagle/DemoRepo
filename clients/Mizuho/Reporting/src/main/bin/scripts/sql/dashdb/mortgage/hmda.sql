@@ -1,8 +1,7 @@
 DROP TABLE Mortgage_Report_New;
-
+--  ID                               INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1, NO CACHE ),
 CREATE TABLE  Mortgage_Report_New
 (
-     ID                               INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1, NO CACHE ),
      tract_to_msamd_income            DECIMAL(31,6),
      rate_spread                      DECIMAL(31,6),
      population                       INTEGER,
@@ -37,7 +36,7 @@ CREATE TABLE  Mortgage_Report_New
      co_applicant_race_name_2         VARCHAR(1024),
      co_applicant_race_name_1         VARCHAR(1024),
      co_applicant_ethnicity_name      VARCHAR(1024),
-     census_tract_number              VARCHAR(1024),
+     census_tract_number              DECIMAL(31,6),
      as_of_year                       INTEGER,
      applicant_sex_name               VARCHAR(1024),
      applicant_race_name_5            VARCHAR(1024),
@@ -48,5 +47,6 @@ CREATE TABLE  Mortgage_Report_New
      applicant_ethnicity_name         VARCHAR(1024),
      agency_name                      VARCHAR(1024),
      agency_abbr                      VARCHAR(1024),
-     action_taken_name                VARCHAR(1024)
+     action_taken_name                VARCHAR(1024),
+     application_date_number          INTEGER
 );

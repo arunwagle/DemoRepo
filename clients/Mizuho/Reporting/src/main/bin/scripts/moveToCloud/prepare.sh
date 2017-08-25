@@ -5,8 +5,14 @@ SOURCE_TEMPLATE_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporti
 PROPERTIES_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
 
 #### STEP1: Clean up files
-rm -rf $CSV_LANDING_ZONE_FOLDER/*
-rm -rf $PROPERTIES_FOLDER/*
+rm -rf $CSV_LANDING_ZONE_FOLDER
+rm -rf $PROPERTIES_FOLDER
+rm -rf $LOGS_FOLDER
+
+mkdir -p $CSV_LANDING_ZONE_FOLDER
+mkdir -p $PROPERTIES_FOLDER
+mkdir -p $LOGS_FOLDER
+
 ####
 
 ######## STEP2: Copy CSV files from "" to target/CSVLandingZone ###################
