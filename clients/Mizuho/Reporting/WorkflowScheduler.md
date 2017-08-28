@@ -44,7 +44,7 @@
     Server: localhost (This is the same machine on which the agent is running)
     ```
    
-  - b: Step2: Create run step
+ - b: Step2: Create run step
   ```
     Create a remote step to run run.sh. This will upload the CSV to object storage
     
@@ -56,7 +56,7 @@
     Password: Specify the password of the user on the local machine which was used to install the hybrid agent
     Server: localhost (This is the same machine on which the agent is running)
     ```
-   - c: Step2: Create RESTservice step
+ - c: Step2: Create RESTservice step
   ```
     Create a remote step to create a RESTful service to Data Connect. This will run the acitivity created in DataConnect to upload data from object storage to DB2 Warehouse on cloud 
     
