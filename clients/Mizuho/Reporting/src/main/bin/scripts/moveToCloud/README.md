@@ -8,9 +8,8 @@ You can refer to [moveToCloud readme](https://www.ibm.com/support/knowledgecente
 Install as root
 - yum install perl
 - yum install cpan
-- moveToCloud.pl script needs the following to run successfully
-  Run ** cpan URI::Escape **
-  Run ** cpan Digest::MD5 **
+- moveToCloud.pl script needs the following to run successfully  
+  Run **cpan URI::Escape** & Run **cpan Digest::MD5**
 
 
 # Run
