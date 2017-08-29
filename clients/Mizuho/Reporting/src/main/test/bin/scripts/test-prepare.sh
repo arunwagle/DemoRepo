@@ -1,13 +1,14 @@
+set -o errexit
+
 ####### Set variables ###########
-SOURCE_CSV_FOLDER=/Users/arunwagle/Documents/test
-CSV_LANDING_ZONE_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
-SOURCE_TEMPLATE_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/resources/templates
-PROPERTIES_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
-LOGS_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
+SOURCE_CSV_FOLDER=/home/arunwagle/Projects/Data/csvsource
+CSV_LANDING_ZONE_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
+SOURCE_TEMPLATE_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/resources/templates
+PROPERTIES_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
+LOGS_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
 #### STEP1: Clean up files
-rm -rf $CSV_LANDING_ZONE_FOLDER
-rm -rf $PROPERTIES_FOLDER
-rm -rf $LOGS_FOLDER
+rm -rf $CSV_LANDING_ZONE_FOLDER/*
+rm -rf $PROPERTIES_FOLDER/*
 
 mkdir -p $CSV_LANDING_ZONE_FOLDER
 mkdir -p $PROPERTIES_FOLDER

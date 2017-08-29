@@ -97,7 +97,7 @@ if [ "${responseArr[$i]}" == "X-Subject-Token:" ] ; then
     break;
 fi
 done
-
+echo BLUEMIX_OBJECT_STORAGE_TOKEN = $BLUEMIX_OBJECT_STORAGE_TOKEN
 # Extract the token from the response
 # head=true
 # while read -r line; do
