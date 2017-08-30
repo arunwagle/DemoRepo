@@ -23,7 +23,9 @@ Mizuho does not have the means to automatically process and generate reports dur
   Setup the script that will be used to upload the files.  
   - Refer to [Setup the scripts required to upload the files](src/main/bin/scripts/moveToCloud/README.md)  
 
-### Create DB2 Warehouse on cloud schema from the Object Storage CSV & move data from Bluemix Object Storage to DB2 Warehouse on cloud
+### Create DB2 Warehouse on cloud schema from the CSV data files 
+& 
+### Move data from Bluemix Object Storage to DB2 Warehouse on cloud
 - Refer to [Using Data Connect to design data flow between Object Storage and DashDB, schedule jobs](DataConnect.md)
 
 ### Automate the process 
