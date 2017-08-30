@@ -16,21 +16,19 @@ Mizuho does not have the means to automatically process and generate reports dur
 - [x] Automate all the above steps using Bluemix Workflow Scheduler 
 
 
-### Pre-requisites
+#### Pre-requisites
 - Refer to [Setup guidelines for this project](setupdoc.md)
 
-### Move CSV files to Bluemix Object Storage
+#### Move CSV files to Bluemix Object Storage
   Setup the script that will be used to upload the files.  
   - Refer to [Setup the scripts required to upload the files](src/main/bin/scripts/moveToCloud/README.md)  
 
-### Create DB2 Warehouse on cloud schema from the CSV data files 
-& 
-### Move data from Bluemix Object Storage to DB2 Warehouse on cloud
+#### Create DB2 Warehouse on cloud schema from the CSV data files & ### Move data from Bluemix Object Storage to DB2 Warehouse on cloud
 - Refer to [Using Data Connect to design data flow between Object Storage and DashDB, schedule jobs](DataConnect.md)
 
-### Automate the process 
+#### Automate the process 
 -Refer to [Use Workflow Scheduler to create jobs to upload CSV files to Object Storage](WorkflowScheduler.md)
 
-### Create reports using Cognos Analytics.
+#### Create reports using Cognos Analytics.
 - Refer to [Using Cognos analytics to generate reports](CognosAnalytics.md)
 
