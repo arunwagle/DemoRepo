@@ -1,6 +1,8 @@
 set -o errexit
+
 ##### Set all variables #######
 BLUEMIX_OBJECT_STORAGE_AUTH_URL='https://identity.open.softlayer.com/v3/auth/tokens'
+
 AUTH_PARAMS='{
    "auth":{
       "identity":{
@@ -22,18 +24,20 @@ AUTH_PARAMS='{
    }
 }'
 
-SCRIPT_HOME=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud
-PROPERTIES_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
+SCRIPT_HOME=/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud
+PROPERTIES_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
 CREDENTIAL_FILE=creds-bluemix-object-storage.txt
 BATCH_UPLOAD_FILE=batch-csv-upload.txt
-CSV_SOURCE_DIR=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
+CSV_SOURCE_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
 CLOUD_STORAGE_URL=dallas
-STORAGE_CONTAINER=csv_landing_zone
-TEMP_DIR=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
-LOG_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
+STORAGE_CONTAINER=csv_processed
+TEMP_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
+LOG_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
 UPLOAD_START_TAG="==UPLOADS_START=="
 UPLOAD_END_TAG="==UPLOADS_END=="
 DELIMITER=";"
+
+TODAYS_DATE=`date +%Y-%m-%d`
 
 ######## STEP1: Code to determine OS ###################
 
@@ -98,7 +102,6 @@ echo Step 1 Complete: Detected $OS
 ######## END: Code to determine OS ###################
 
 ######## STEP2: Code to compute token for accessing Bluemix Object Storage ###################
-
 # response from the API call
 BLUEMIX_OBJECT_STORAGE_RES=$(curl -i -H "Content-Type: application/json" -d "$AUTH_PARAMS" $BLUEMIX_OBJECT_STORAGE_AUTH_URL)
 
@@ -111,24 +114,7 @@ if [ "${responseArr[$i]}" == "X-Subject-Token:" ] ; then
     break;
 fi
 done
-echo BLUEMIX_OBJECT_STORAGE_TOKEN = $BLUEMIX_OBJECT_STORAGE_TOKEN
-# Extract the token from the response
-# head=true
-# while read -r line; do
-#     if $head; then
-#         if [[ $line = $'\r' ]]; then
-#         head=false
-#     else
-#         str=$(echo $line | grep "X-Subject-Token:" | awk '{print $2}');
-#         if [ ! -z "$str" -a "$str"!=" " ]; then
-#             BLUEMIX_OBJECT_STORAGE_TOKEN=$str
-#         fi
-#     fi
-#     else
-#         body="$body"$'\n'"$line"
-#     fi
-# done < <(echo "$BLUEMIX_OBJECT_STORAGE_RES")
-#
+
 # echo  Step 2 Complete: BLUEMIX_OBJECT_STORAGE_TOKEN = $BLUEMIX_OBJECT_STORAGE_TOKEN
 
 ######## END: Code to compute token for accessing Bluemix Object Storage ###################
@@ -165,13 +151,13 @@ echo CSV file List printf "$csvUploadList"
 if [ $OS = mac ]; then
   echo "Mac detected"
   # Replace values in the batch-csv-upload-template.txt
-  sed -i '' -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g;s,<PLACEHOLDER_UPLOAD_FILES>,$csvUploadList,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
+  sed -i '' -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER_$TODAYS_DATE,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g;s,<PLACEHOLDER_UPLOAD_FILES>,$csvUploadList,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
   # Replace TOKEN value in the creds-bluemix-object-storage-template.txt
   sed -i '' -- "s/<PLACEHOLDER_TOKEN>/$BLUEMIX_OBJECT_STORAGE_TOKEN/g" $PROPERTIES_FOLDER/$CREDENTIAL_FILE
 else
   echo "Not Mac detected"
   # Replace values in the batch-csv-upload-template.txt
-  sed -i -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g;s,<PLACEHOLDER_UPLOAD_FILES>,$csvUploadList,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
+  sed -i -- "s,<PLACEHOLDER_CREDENTIALS>,$PROPERTIES_FOLDER/$CREDENTIAL_FILE,g;s,<PLACEHOLDER_SOURCEDIR>,$CSV_SOURCE_DIR,g;s,<PLACEHOLDER_URL>,$CLOUD_STORAGE_URL,g;s,<PLACEHOLDER_CONTAINER>,$STORAGE_CONTAINER_$TODAYS_DATE,g;s,<PLACEHOLDER_TMPDIR>,$TEMP_DIR,g;s,<PLACEHOLDER_UPLOAD_FILES>,$csvUploadList,g"  $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE
   # Replace TOKEN value in the creds-bluemix-object-storage-template.txt
   sed -i -- "s/<PLACEHOLDER_TOKEN>/$BLUEMIX_OBJECT_STORAGE_TOKEN/g" $PROPERTIES_FOLDER/$CREDENTIAL_FILE
 fi
@@ -182,9 +168,11 @@ echo  Step 3 Complete: Set and replace the variables in the files
 
 ######## STEP4: Upload files to object storage ###################
 cd $SCRIPT_HOME
+# create container
+curl -i https://dal.objectstorage.open.softlayer.com/v1/AUTH_9f2108032c4e44119f41ba96e9d83883/csv_processed_$TODAYS_DATE -X PUT -H "Content-Length: 0" -H "X-Auth-Token: $BLUEMIX_OBJECT_STORAGE_TOKEN"
+
 # Run batch upload
 perl moveToCloud.pl -batch $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE  -debug $LOG_FOLDER/log.txt
 
-# Run single upload
-#perl moveToCloud.pl -source ../../data/AssetsImportCompleteSample.csv -target softlayer::dallas::csv_landing_zone::AssetsImportCompleteSample.csv -creds creds-bluemix-object-storage.txt -tmpdir temp -threads 6 -debug log.txt -token -nocompression
-######## END: Upload files to object storage ###################
+# Delete files from csv_landing_zone
+perl moveToCloud.pl -creds $PROPERTIES_FOLDER/$CREDENTIAL_FILE -token -delete -yes -target softlayer::dallas::csv_landing_zone::hmda_lar.csv
