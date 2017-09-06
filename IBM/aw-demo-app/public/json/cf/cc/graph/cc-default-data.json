@@ -1,0 +1,41 @@
+{
+  "propertyKeys": [
+    {"name": "name", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "pid", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "rev", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "issue", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "sub_issue", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "zip_code", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "timely_response", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "day", "dataType": "String", "cardinality": "SINGLE"},
+    {"name": "received_date", "dataType": "String", "cardinality": "SINGLE"}
+  ],
+  "vertexLabels": [
+    {"name": "company"},
+    {"name": "product"},
+    {"name": "sub_product"},
+  	{"name": "state"},
+  	{"name": "year"},
+  	{"name": "month"},
+  	{"name": "issue"}
+  ],
+  "edgeLabels": [
+    {"name": "is_product", "multiplicity": "MULTI"},
+    {"name": "is_sub_product", "multiplicity": "MULTI"},
+    {"name": "is_state", "multiplicity": "MULTI"},
+    {"name": "is_year", "multiplicity": "MULTI"},
+    {"name": "is_month", "multiplicity": "MULTI"},
+    {"name": "is_issue", "multiplicity": "MULTI"}
+  ],
+  "vertexIndexes": [
+    {"name": "vByName", "propertyKeys": ["name"], "composite": true, "unique": false},
+    {"name": "vByIssue", "propertyKeys": ["issue"], "composite": true, "unique": false},
+    {"name": "vBySubIssue", "propertyKeys": ["sub_issue"], "composite": true, "unique": false},
+    {"name": "vByZipCode", "propertyKeys": ["zip_code"], "composite": true, "unique": false},
+    {"name": "vByTimelyResponse", "propertyKeys": ["timely_response"], "composite": true, "unique": false}
+  ],
+  "edgeIndexes": [
+    {"name": "vByDay", "propertyKeys": ["day"], "composite": true, "unique": false},
+    {"name": "vByReceivedDate", "propertyKeys": ["received_date"], "composite": true, "unique": false}
+  ]
+}

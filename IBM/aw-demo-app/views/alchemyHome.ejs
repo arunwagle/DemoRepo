@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IBM Bluemix</title>
+  <link rel="stylesheet" href="css/watson-bootstrap-dark.css">
+  <link rel="stylesheet" href="css/banner.css">
+  <!-- <link rel="stylesheet" href="css/additional.css"> -->
+</head>
+<body>
+  <header class="top-nav navbar-fixed-top">
+
+    <div class="container">
+      <a href="https://console.ng.bluemix.net/" class="top-nav--logo-link">
+        <h3 class="heading left">IBM
+          <span class="top-nav--logo-wdc">Powered By Bluemix</span>
+        </h3>
+      </a>
+
+    </div>
+      <div class="row container">
+        <nav class="top-nav--nav" role="menubar">
+          <li class="top-nav--nav-item" role="presentation">
+            <a href="/" role="menuitem">Home</a>
+          </li>
+          <li class="top-nav--nav-item" role="presentation">
+            <a href="/gh" role="menuitem">Generic</a>
+          </li>
+          <li class="top-nav--nav-item" role="presentation">
+            <a href="/mh" role="menuitem">Mortgage</a>
+          </li>
+          <li class="top-nav--nav-item" role="presentation" >
+            <a href="/ih" role="menuitem">Insurance</a>
+          </li>
+          <li class="top-nav--nav-item" role="presentation" >
+            <a href="/cf" role="menuitem">Consumer Finance</a>
+          </li>          
+          <li class="top-nav--nav-item" role="presentation" >
+            <a href="/settings" role="menuitem" style="color:red !important">Settings</a>
+          </li>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+
+<div class="row header">
+    <div class="container">
+
+      <div class="avatar img-container col-lg-2 col-md-2 col-sm-2 hidden-xs">
+        <img src="/images/app.png" class="service-icon">
+      </div>
+
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 dialog-description">
+        <h1 style="font-size:50px;" class="service-title">AlchemyLanguage</h1>
+        <!-- <div class="resource-item-container">
+              <div class="resource-item">AlchemyLanguage is a collection of APIs that offer text analysis through natural language processing. This set of APIs can analyze text to help you understand its concepts, entities, keywords, sentiment, and more. Additionally, you can create a custom model for some APIs to get specific results that are tailored to your domain. </div>
+        </div> -->
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="container">
+      <article class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dialog-description>
+        <div class="input-panel">
+          <h2 class="base--h2">Analyze Text</h2>
+
+          <div class="tab-panels" role="tabpanel">
+            <ul class="tab-panels--tab-list" role="tablist">
+              <li class="tab-panels--tab-list-item base--li" role="presentation">
+                <a class="tab-panels--tab base--a active redlink text-link" href="#panel1" aria-controls="panel1" role="tab">Text</a>
+              </li>
+              <li class="tab-panels--tab-list-item base--li url-tab" role="presentation">
+                <a class="tab-panels--tab base--a redlink url-link" href="#panel2" aria-controls="panel2" role="tab">URL</a>
+              </li>
+            </ul>
+            <div class="tab-panels--tab-content">
+              <div id="panel1" class="tab-panels--tab-pane active" role="tab-panel">
+                <textarea class="input--text">In 2009, Elliot Turner launched AlchemyAPI to process the written word, with all of its quirks and nuances, and got immediate traction. That first month, the company's eponymous language-analysis API processed 500,000 transactions. Today it's processing three billion transactions a month, or about 1,200 a second. “That's a growth rate of 6,000 times over three years,” touts Turner. “Context is super-important,” he adds. “'I'm dying' is a lot different than 'I'm dying to buy the new iPhone.'” “As we move into new markets, we're going to be making some new hires," Turner says. "We knocked down some walls and added 2,000 square feet to our office.” “We're providing the ability to translate human language in the form of web pages and documents into actionable data,” Turner says. Clients include Walmart, PR Newswire and numerous publishers and advertising networks. “This allows a news organization to detect what a person likes to read about,” says Turner of publishers and advertisers.</textarea>
+              </div>
+
+              <div id="panel2" class="tab-panels--tab-pane " role="tab-panel">
+                <textarea class="input--text" rows="1" value="">http://confluence-denver.com/innovationnews/alchemyapi_booming.aspx</textarea>
+              </div>
+            </div>
+            <span class="icon-hyperlink">
+                  <span class="icon icon-reset"></span>
+            <button id="reset" name="reset" class="btn-secondary" type="reset">Reset</button>
+            <button id="submitbutton" name="results" class="btn" style="float:right;">Analyze</button>
+            </span>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="row output">
+
+      <div class="container">
+
+        <div id="results" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="row">
+            <h2 class="results-left-box base--h2">Results</h2>
+            <button id="saveToCloudant" name="saveToCloudant" class="btn" style="float:right;">Save To Cloudant</button>
+          </div>
+          <div class="left-box">
+            <div id="t1" target="1" class="ml-item ml-item-active">
+              Relations
+            </div>
+            <div id="t2" target="2" class="ml-item">
+              Typed Relations
+            </div>
+          </div>
+
+          <div class="results-frame">
+            <div id="div1" class="1-result int-hide">
+              <h3 class="base--h3">Relations</h3>
+              <pre class="API--json int-hide">
+                <code id="relations-API-data" class="language-javascript ">
+                </code>
+              </pre>
+              <div class="container-relations relations-table">
+              </div>
+              <div class="btn-all-container">
+                <div class="btn-all-results-relations arrowdown-main btn-results" href="#">View all results</div>
+              </div>
+            </div>
+
+            <div id="div2" class="1-result int-hide">
+              <h3 class="base--h3">Typed Relations</h3>
+              <pre class="API--json int-hide">
+                <code id="typedRelations-API-data" class="language-javascript ">
+                </code>
+              </pre>
+              <div class="container-relations typedrelations-table">
+              </div>
+              <div class="btn-all-container">
+                <div class="btn-all-results-typedrelations arrowdown-main btn-results" href="#">View all results</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script type="text/html" id="relationsTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <div class="element-relations">
+        <div class="header-relations arrowup">
+          <%= item.sentence %>
+        </div>
+        <div class="content-relations">
+          <h3 class="base--h3 relations-headline">Extracted Sentence</h3>
+          <p class="output-header-tagline">
+            <%= item.sentence %>
+          </p>
+          <h3 class="base--h3 relations-headline">Parts of Speech</h3>
+          <table class="base--table nested-relations">
+            <thead class="base--thead">
+              <tr class="base--tr">
+                <td class="base--td">Subject</td>
+                <td class="base--td">Action</td>
+                <td class="base--td">Object</td>
+              </tr>
+            </thead>
+            <tbody>
+              <% if(item.subject){ %>
+                <tr class="base--tr">
+                  <td class="base--td">
+                    <%= item.subject.text %>
+                  </td>
+                <% } %>
+                <% if(item.action.verb){ %>
+                    <td class="base--td">
+                      <%= item.action.verb.text %>
+                    </td>
+                  <% } %>
+                  <% if(item.object){ %>
+                        <td class="base--td">
+                            <%= item.object.text %>
+                        </td>
+                    </tr>
+                  <% } %>
+            </tbody>
+          </table>
+          <% if(item.action.verb){ %>
+            <h3 class="base--h3 relations-headline">Verb Normalization</h3>
+
+            <table class="base--table nested-relations">
+              <thead class="base--thead">
+                <tr class="base--tr">
+                  <td class="base--td">Text</td>
+                  <td class="base--td">Lemmatized</td>
+                  <td class="base--td">Verb</td>
+                  <td class="base--td">Tense</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="base--tr">
+                  <td class="base--td">
+                    <%= item.action.verb.text %>
+                  </td>
+                  <td class="base--td">
+                    <% if(item.action.lemmatized){ %>
+                      <%= item.action.lemmatized %>
+                        <% } %>
+                  </td>
+                  <td class="base--td">
+                    <%= item.action.text %>
+                  </td>
+                  <td class="base--td">
+                    <%= item.action.verb.tense %>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            <% } %>
+
+              <% if(item.object){ %>
+                <% if(item.subject){ %>
+                  <% if(item.object.entities){ %>
+                    <% if(item.subject.entities){ %>
+                      <h3 class="base--h3 relations-headline">Relational Entities</h3>
+                      <table class="base--table nested-relations">
+                        <thead class="base--thead">
+                          <tr class="base--tr">
+                            <td class="base--td">Entity</td>
+                            <td class="base--td">Type</td>
+                            <td class="base--td">Speach Part</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <% _.each(item.subject.entities, function(subjectentities, key, list) { %>
+                            <tr class="base--tr">
+                              <td class="base--td">
+                                <%= subjectentities.text %>
+                              </td>
+                              <td class="base--td">
+                                <%= subjectentities.type %>
+
+                              </td>
+                              <td class="base--td">
+                                subject
+                              </td>
+                            </tr>
+                            <% }); %>
+
+                              <% _.each(item.object.entities, function(objectentities, key, list) { %>
+                                <tr class="base--tr">
+                                  <td class="base--td">
+                                    <%= objectentities.text %>
+                                  </td>
+                                  <td class="base--td">
+                                    <%= objectentities.type %>
+                                  </td>
+                                  <td class="base--td">
+                                    object
+                                  </td>
+                                </tr>
+                                <% }); %>
+
+                        </tbody>
+                      </table>
+                      <% } %>
+                        <% } %>
+                          <% } %>
+                            <% } %>
+        </div>
+
+      </div>
+
+      <% }); %>
+  </script>
+
+  <script type="text/html" id="typedRelationsTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <table class="base--table typedrelations resultscontainter">
+
+        <thead class="base--thead  base--tr-custom">
+          <tr class="base--tr">
+            <td class="base--td">Sentence</td>
+            <td class="base--td">Score</td>
+            <td class="base--td">Type</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="base--td">
+              <%=item.sentence %>
+            </td>
+            <td class="base--td">
+              <%=item.score %>
+            </td>
+            <td class="base--td">
+              <%=item.type %>
+            </td>
+          </tr>
+        </tbody>
+        <% if(item.arguments && item.arguments.length > 0){ %>
+
+            <thead class="base--thead base--thead nested-relations">
+              <tr class="base--tr">
+                <td class="base--td">Argument Text</td>
+                <td class="base--td">Part</td>
+                <td class="base--td"></td>
+              </tr>
+            </thead>
+            <% _.each(item.arguments, function(arguments, key, list) { %>
+
+              <tr>
+                <td class="base--td">
+                  <%=arguments.text  %>
+                </td>
+
+                <td class="base--td">
+                  <%=arguments.part %>
+                </td>
+                <td class="base--td"></td>
+              </tr>
+
+              <% }); %>
+
+              <thead class="base--thead">
+                <tr>
+                  <td class="base--td base--thead nested-relations">Entities from Arguments</td>
+                  <td class="base--td base--thead nested-relations">Type</td>
+                  <td class="base--td base--thead nested-relations"></td>
+                </tr>
+              </thead>
+              <tbody>
+                <% _.each(item.arguments, function(arguments, key, list) { %>
+                  <% _.each(arguments.entities, function(entity, key, list) { %>
+                    <tr>
+
+                      <td class="base--td">
+                        <%=entity.text %>
+                      </td>
+                      <td colspan="2" class="base--td">
+                        <%=entity.type %>
+                      </td>
+
+                    </tr>
+                    <% }); %>
+                      <% }); %>
+
+
+                        <% } %>
+
+              </tbody>
+
+      </table>
+
+      <% }); %>
+
+  </script>
+
+  <div class="row">
+    <!-- Footer goes here -->
+  </div>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script type="text/javascript" src="/js/mortgage/alchemy.js"></script>
+  <script type="text/javascript" src="/js/string-utils.js"></script>
+  <script type="text/javascript" src="/js/i18n.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html data-ng-app="myApp" data-ng-controller="appCtrl">
+<head>
+  <meta charset="utf-8">
+  <meta content="text/html; charset=UTF-8" name="Content-Type" />
+  <meta name="fragment" content="!" />
+  <title>Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="/css/bootstrap-select.css" type="text/css">
+  <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"> -->
+
+  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" /> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="css/styles2.css" /> -->
+  <!-- <link rel="stylesheet" href="/css/screen.css" type="text/css"> -->
+
+
+  <!-- <script>
+  $(document).ready(function () {
+    $('[data-toggle="offcanvas"]').click(function () {
+      $('.row-offcanvas').toggleClass('active')
+    });
+  });
+  </script> -->
+
+
+
+</head>
+
+
+
+<body>
+
+<div id="container">
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand top-nav--logo-wdc" href="#">IBM Powered By Bluemix</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="/" role="menuitem">Home</a>
+              </li>
+              <!-- <li>
+                <a href="/gh" role="menuitem">Generic</a>
+              </li> -->
+              <li>
+                <a href="/mh" role="menuitem">Mortgage</a>
+              </li>
+              <li>
+                <a href="/ih" role="menuitem">Insurance</a>
+              </li>
+              <li>
+                <a href="/cf" role="menuitem">Consumer Finance</a>
+              </li>
+              <li class="active">
+                <a href="/settings" role="menuitem" style="color:red !important">Settings</a>
+              </li>
+
+            </ul>
+          </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+
+  <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-right">
+          <div class="col-xs-12 col-sm-9 col-sm-push-3">
+            <p class="pull-right visible-xs">
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas" title="Toggle sidebar"><i class="fa fa-chevron-right"></i></button>
+            </p>
+            <div class="jumbotron">
+              <h1>Setup Graph Data</h1>
+              <p>Setup different graph databases.</p>
+            </div>
+            <div class="row">
+
+              <div class="col-xs-4 col-lg-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <p class="text-muted">
+                        <input id="ccGraphName" name="ccGraphName" type="text" class="form-control" placeholder="Enter Graph Name">
+                      </p>
+                      <p>
+                        <button id="createGraphButton" name="createGraphButton" class="btn btn-warning" href="#" role="button">Create Graph</button>
+                      </p>
+                  </div>
+                </div>
+              </div><!--/.col-xs-6.col-lg-4-->
+
+              <!-- <div class="col-xs-4 col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h2>Create Schema</h2>
+                    <p class="text-muted">Loads schema from cloudant. </p>
+                    <p><a id="createGraphSchemaButton" name="createGraphSchemaButton" class="btn btn-warning btn-block" href="#" role="button">Load Schema</a></p>
+                  </div>
+                </div>
+              </div> -->
+              <!--/.col-xs-6.col-lg-4-->
+
+              <!-- <div class="col-xs-4 col-lg-4">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h2>Load Data</h2>
+                    <p  class="text-muted">Loads data from cloudant. </p>
+                    <p><a id="loadVertexButton" name="loadVertexButton" class="btn btn-warning btn-block" href="#" role="button">Load Data</a></p>
+                  </div>
+                </div>
+              </div> -->
+              <!--/.col-xs-6.col-lg-4-->
+
+            </div><!--/row 1-->
+
+              <div  class="row">
+                <div class="col-xs-9 col-lg-9">
+                  <div class="db-wrapper">
+                      <div class="db-pricing-nine">
+                          <div class="table-responsive">
+                              <table class="table table-hover">
+                                  <thead>
+                                      <tr>
+                                          <th class="db-bk-color-two">Available Graphs</th>
+                                          <th class="db-bk-color-three">Schema</th>
+                                          <th class="db-bk-color-two">Data</th>
+                                          <th class="db-bk-color-three">Application</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td id="ccGraphId" class="db-width-perticular">gtest35</td>
+                                          <td>
+                                            <p>
+                                              <button id="createGraphSchemaButton" name="createGraphSchemaButton" class="btn btn-warning" role="button">Load Schema</button>
+                                            </p>
+                                          </td>
+                                          <td>
+                                            <p>
+                                              <button id="loadVertexButton" name="loadVertexButton" class="btn btn-warning" role="button">Load Vertex</button>
+                                            </p>
+                                            <p>
+                                              <button id="prepareEdgesButton" name="prepareEdgesButton" class="btn btn-warning" role="button">Prep Edges</button>
+                                            </p>
+                                            <p>
+                                              <button id="loadEdgesButton" name="loadEdgesButton" class="btn btn-warning" role="button">Load Edges</button>
+                                            </p>
+                                            <p>
+                                              <button id="prepareIssuesButton" name="prepareIssuesButton" class="btn btn-warning" role="button">Prep Issues</button>
+                                            </p>
+                                            <p>
+                                              <button id="loadIssuesButton" name="loadIssuesButton" class="btn btn-warning" role="button">Load Issues</button>
+                                            </p>
+                                          </td>
+
+                                          <td>Consumer Finance</td>
+                                      </tr>
+
+                                      <!-- <tr>
+                                          <td class="db-width-perticular">Dedicated Support Panel</td>
+                                          <td><i class="glyphicon glyphicon-ok icon-green"></i></td>
+                                          <td><i class="glyphicon glyphicon-remove icon-red"></i></td>
+                                          <td><i class="glyphicon glyphicon-ok icon-green"></i></td>
+                                      </tr> -->
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div><!--/row 2-->
+
+          </div><!--/.col-xs-12.col-sm-9-->
+
+          <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+            <div class="list-group">
+              <a href="/settings" class="list-group-item active">Graph Setup</a>
+              <a href="/watsonsettings" class="list-group-item">Watson Setup</a>
+              <a href="/uploadsettings" class="list-group-item">Upload</a>
+            </div>
+          </div><!--/.sidebar-offcanvas-->
+        </div><!--/row-->
+
+        <!-- <hr>
+
+        <footer>
+          <p>&copy; 2015 Company, Inc.</p>
+        </footer> -->
+
+  </div><!--/.container-fluid-->
+
+</div><!--/.container-->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script type="text/javascript" src="/js/cf/cf.js"></script>
+<script type="text/javascript" src="/js/string-utils.js"></script>
+<script type="text/javascript" src="/js/i18n.js"></script>
+
+</body>
+</html>

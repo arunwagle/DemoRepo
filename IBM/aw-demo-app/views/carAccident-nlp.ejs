@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>IBM Bluemix</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/additional.css">
+</head>
+<body>
+  <header class="_demo--heading">
+    <div class="_demo--container">
+      <a class="wordmark" href="http://www.ibm.com/watson/developercloud/" target="_blank">
+        <span class="wordmark--left">IBM</span>
+        <span class="wordmark--right">Powered By Bluemix</span>
+      </a>
+      <nav class="heading-nav" role="menubar">
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="/" role="menuitem">Home</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation">
+          <a class="heading-nav--item" href="/mortgage" role="menuitem">Mortgage</a>
+        </li>
+        <li class="base--li heading-nav--li" role="presentation" >
+          <a class="heading-nav--item" href="/cc" role="menuitem">Consumer Complaints</a>
+        </li>
+      </nav>
+    </div>
+  </header>
+  <div class="_demo--banner banner">
+    <div class="_demo--container">
+      <div class="banner--service-container">
+        <div class="banner--service-info">
+          <h1 class="banner--service-title base--h1">
+            AlchemyLanguage
+          </h1>
+          <div class="banner--service-description">
+            AlchemyLanguage is a collection of APIs that offer text analysis through natural language processing. This set of APIs can analyze text to help you understand its concepts, entities, keywords, sentiment, and more. Additionally, you can create a custom model for some APIs to get specific results that are tailored to your domain. </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="_demo--container">
+    <article class="_content base--article">
+      <div class="input-panel">
+        <h2 class="base--h2">Analyze Text</h2>
+
+        <div class="tab-panels" role="tabpanel">
+          <ul class="tab-panels--tab-list" role="tablist">
+            <li class="tab-panels--tab-list-item base--li" role="presentation">
+              <a class="tab-panels--tab base--a active redlink text-link" href="#panel1" aria-controls="panel1" role="tab">Text</a>
+            </li>
+            <li class="tab-panels--tab-list-item base--li url-tab" role="presentation">
+              <a class="tab-panels--tab base--a redlink url-link" href="#panel2" aria-controls="panel2" role="tab">URL</a>
+            </li>
+          </ul>
+          <div class="tab-panels--tab-content">
+            <div id="panel1" class="tab-panels--tab-pane active" role="tab-panel">
+              <textarea class="js-input-section--text-area base--textarea input--text" style="height: 270px">Police say a woman has been killed after a school bus jumped a curb in Brooklyn. It happened around 6:30 p.m. Friday at the intersection of Atlantic Avenue and Schenectady Avenue in the Bedford Stuyvesant neighborhood.The New York Police Department says the 50 year-old victim had been walking on the sidewalk when she was hit.</textarea>
+            </div>
+
+            <div id="panel2" class="tab-panels--tab-pane " role="tab-panel">
+              <textarea class="base--textarea input--URL" rows="1" value="">http://confluence-denver.com/innovationnews/alchemyapi_booming.aspx</textarea>
+            </div>
+          </div>
+          <span class="icon-hyperlink">
+                <span class="icon icon-reset"></span>
+          <button name="results" class="base--a reset icon-hyperlink--button" type="reset">
+                        Reset
+                    </button>
+          </span>
+        </div>
+        <p>
+          <button id="submitbutton" name="results" class="base--button_submit" style="float:right;">Analyze</button>
+        </p>  
+      </div>
+    </article>
+  </div>
+
+
+    <div class="output">
+
+      <div class="_demo--container results--container">
+
+        <div id="results" class="container result-container">
+          <h2 class="base--h2">Results</h2>
+
+          <div class="left-box">
+            <div id="t1" target="1" class="ml-item ml-item-active">
+              Relations
+            </div>
+            <div id="t2" target="2" class="ml-item">
+              Typed Relations
+            </div>
+          </div>
+
+          <div class="results-frame">
+            <div id="div1" class="1-result int-hide">
+              <h3 class="base--h3">Entities</h3>
+              <div class="base--tbody entities-table">
+              </div>
+              <div class="btn-all-container">
+                <div class="btn-all-results-relations arrowdown-main btn-results" href="#">View all results</div>
+              </div>
+            </div>
+
+            <div id="div2" class="1-result int-hide">
+              <h3 class="base--h3">Typed Relations</h3>
+              <div class="typedrelations-table">
+              </div>
+              <div class="btn-all-container">
+                <div class="btn-all-results-typedrelations arrowdown-main btn-results" href="#">View all results</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </div>
+
+
+    <script type="text/html" id="entitiesTemplate">
+      <% _.each(items, function(item, key, list) { %>
+        <table class="base--table entities resultscontainter">
+          <thead class="base--thead" style="border-bottom: 0;">
+            <tr class="base--tr">
+              <td class="base--td">Entity</td>
+              <td class="base--td">
+                <% if(item.relevance){ %> Relevance
+                  <% } %>
+              </td>
+              <td class="base--td"> Sentiment </td>
+              <td class="base--td"> Type </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="base--tr">
+              <td class="base--td">
+                <%= item.text %>
+              </td>
+              <td class="base--td">
+                <% if(item.relevance){ %>
+                  <%= item.relevance %>
+                    <% } %>
+              </td>
+              <td class="base--td">
+                <%= item.sentiment.type %>
+              </td>
+              <td class="base--td">
+                <%= item.type %>
+              </td>
+            </tr>
+          </tbody>
+          <% if(item.emotions){ %>
+            <thead class="base--thead nested-relations">
+              <tr class="base--tr">
+                <td class="base--td">Emotion</td>
+                <td colspan="3" class="base--td">Score</td>
+              </tr>
+            </thead>
+            <% } %>
+              <tbody>
+                <% if(item.emotions){ %>
+                  <tr class="base--tr">
+                    <td class="base--td">Anger</td>
+                    <td colspan="3" class="base--td">
+                      <%= item.emotions.anger %>
+                    </td>
+                  </tr>
+                  <% } %>
+                    <% if(item.emotions){ %>
+                      <tr class="base--tr">
+                        <td class="base--td">Disgust</td>
+                        <td colspan="3" class="base--td">
+                          <%= item.emotions.disgust %>
+                        </td>
+                      </tr>
+                      <% } %>
+                        <% if(item.emotions){ %>
+                          <tr class="base--tr">
+                            <td class="base--td">Fear</td>
+                            <td colspan="3" class="base--td">
+                              <%= item.emotions.fear %>
+                            </td>
+                          </tr>
+                          <% } %>
+                            <% if(item.emotions){ %>
+                              <tr class="base--tr">
+                                <td class="base--td">Joy</td>
+                                <td colspan="3" class="base--td">
+                                  <%= item.emotions.joy %>
+                                </td>
+                              </tr>
+                              <% } %>
+                                <% if(item.emotions){ %>
+                                  <tr class="base--tr">
+                                    <td class="base--td">Sadness</td>
+                                    <td colspan="3" class="base--td">
+                                      <%= item.emotions.sadness %>
+                                    </td>
+                                  </tr>
+                                  <% } %>
+              </tbody>
+        </table>
+
+        <% }); %>
+    </script>
+
+    <script type="text/html" id="typedRelationsTemplate">
+    <% _.each(items, function(item, key, list) { %>
+      <table class="base--table typedrelations resultscontainter">
+
+        <thead class="base--thead">
+          <tr class="base--tr">
+            <td class="base--td">Sentence</td>
+            <td class="base--td">Score</td>
+            <td class="base--td">Type</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="base--td">
+              <%=item.sentence %>
+            </td>
+            <td class="base--td">
+              <%=item.score %>
+            </td>
+            <td class="base--td">
+              <%=item.type %>
+            </td>
+          </tr>
+        </tbody>
+        <% if(item.arguments && item.arguments.length > 0){ %>
+
+          <thead class="base--thead base--thead nested-relations">
+            <tr class="base--tr">
+              <td class="base--td">Argument Text</td>
+              <td class="base--td">Part</td>
+              <td class="base--td"></td>
+            </tr>
+          </thead>
+          <% _.each(item.arguments, function(arguments, key, list) { %>
+
+            <tr>
+              <td class="base--td">
+                <%=arguments.text  %>
+              </td>
+
+              <td class="base--td">
+                <%=arguments.part %>
+              </td>
+              <td class="base--td"></td>
+            </tr>
+
+            <% }); %>
+
+              <thead class="base--thead">
+                <tr>
+                  <td class="base--td base--thead nested-relations">Entities from Arguments</td>
+                  <td class="base--td base--thead nested-relations">Type</td>
+                  <td class="base--td base--thead nested-relations"></td>
+                </tr>
+              </thead>
+              <tbody>
+                <% _.each(item.arguments, function(arguments, key, list) { %>
+                  <% _.each(arguments.entities, function(entity, key, list) { %>
+                    <tr>
+
+                      <td class="base--td">
+                        <%=entity.text %>
+                      </td>
+                      <td colspan="2" class="base--td">
+                        <%=entity.type %>
+                      </td>
+
+                    </tr>
+                    <% }); %>
+                      <% }); %>
+
+                        <% } %>
+              </tbody>
+
+      </table>
+
+      <% }); %>
+
+  </script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script type="text/javascript" src="/js/mortgage/alchemy-custom.js"></script>
+  <script type="text/javascript" src="/js/string-utils.js"></script>
+  <script type="text/javascript" src="/js/i18n.js"></script>
+
+</body>
+
+</html>

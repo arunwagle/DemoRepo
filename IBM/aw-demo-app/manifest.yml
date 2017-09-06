@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: aw-demo-app
+  host: aw-demo-app
+  disk_quota: 1024M
+  

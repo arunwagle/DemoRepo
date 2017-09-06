@@ -1,0 +1,157 @@
+
+/*============================================================
+LOGO
+============================================================*/
+
+.top-nav--logo-wdc {
+  color: #5aaafa !important;
+}
+
+
+/*============================================================
+GENERAL STYLES
+============================================================*/
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+  padding-top: 70px;
+}
+footer {
+  padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    width: 60%; /* 6 columns */
+    display: none;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-right.active
+  .sidebar-offcanvas {
+    display: block;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  .row-offcanvas-right.active {
+
+  }
+
+}
+
+.db-wrapper {
+    font-family: Arial;
+}
+/*============================================================
+BACKGROUND COLORS
+============================================================*/
+.db-bk-color-one {
+    background-color: #f55039;
+}
+
+.db-bk-color-two {
+    background-color: #337ab7;
+}
+
+.db-bk-color-three {
+    background-color: #47887E;
+}
+/*============================================================
+BUTTONS STYLES
+============================================================*/
+
+.db-button-color-one {
+    border: none;
+    background-color: #f55039;
+    color: #fff;
+}
+
+    .db-button-color-one:hover, .db-button-color-one:focus {
+        color: #fff;
+    }
+
+.db-button-color-two {
+    border: none;
+    background-color: #46A6F7;
+    color: #fff;
+}
+
+    .db-button-color-two:hover, .db-button-color-two:focus {
+        color: #fff;
+    }
+
+.db-button-color-three {
+    border: none;
+    background-color: #47887E;
+    color: #fff;
+}
+
+    .db-button-color-three:hover, .db-button-color-three:focus {
+        color: #fff;
+    }
+/*============================
+PRICING TABLES NINE STYLES
+==============================*/
+
+.db-pricing-nine {
+    border: 1px solid #EDEDED;
+    margin-bottom: 30px;
+}
+
+.db-width-perticular {
+    width: 300px;
+}
+
+.db-pricing-nine .table {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.db-pricing-nine thead tr th {
+    font-weight: normal;
+    font-weight: normal;
+    height: 72px;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+}
+
+.db-pricing-nine i.icon-red {
+    color: rgb(250, 57, 57);
+}
+
+.db-pricing-nine i.icon-green {
+    color: #00E025;
+}
+
+/*
+TABS
+*/
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #fff;
+  padding : 2px;
+}
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}

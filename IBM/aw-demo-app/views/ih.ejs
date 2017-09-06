@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="text/html; charset=UTF-8" name="Content-Type" />
+  <meta name="fragment" content="!" />
+  <title>Insurance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.css" />
+  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" type="text/css"> -->
+  <!-- <link rel="stylesheet" href="/css/bootstrap-select.css" type="text/css">
+  <link rel="stylesheet" href="/css/bootstrap-multiselect.css" type="text/css"> -->
+
+  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" /> -->
+  <!-- <link rel="stylesheet" href="css/additional.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- <link rel="stylesheet" type="text/css" href="css/styles2.css" /> -->
+  <!-- <link rel="stylesheet" href="/css/screen.css" type="text/css"> -->
+
+</head>
+<body>
+  <div id="container">
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand top-nav--logo-wdc" href="#">IBM Powered By Bluemix</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="/" role="menuitem">Home</a>
+              </li>
+              <li>
+                <a href="/mh" role="menuitem">Mortgage</a>
+              </li>
+              <li  class="active">
+                <a href="/ih" role="menuitem">Insurance</a>
+              </li>
+              <li>
+                <a href="/cf" role="menuitem">Consumer Finance</a>
+              </li>
+              <li>
+                <a href="/settings" role="menuitem" style="color:red !important">Settings</a>
+              </li>
+
+            </ul>
+          </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+    <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-right">
+          <div class="col-xs-12 col-sm-9 col-sm-push-3">
+            <p class="pull-right visible-xs">
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas" title="Toggle sidebar"><i class="fa fa-chevron-right"></i></button>
+            </p>
+            <div class="jumbotron">
+              <h1>Accidental Insurance</h1>
+              <p>Use case Description.</p>
+            </div>
+            <div class="row">
+              <div class="col-xs-9 col-lg-9">
+                <h1>Use NLP with custom model to determine useful information.</h1>
+                <div id="exTab1">
+                  <ul  class="nav nav-tabs">
+                			<li class="active">
+                        <a  class="tab-panels--tab active" href="#panel1" data-toggle="tab">Text</a>
+                			</li>
+                			<li>
+                        <a class="tab-panels--tab" href="#panel2" data-toggle="tab">URL</a>
+                			</li>
+                	</ul>
+
+            			<div class="tab-content clearfix">
+            			  <div class="tab-pane active" id="panel1">
+                      <textarea class="text-muted col-xs-12 col-lg-12 input--text" rows="10">Police say a woman has been killed after a school bus jumped a curb in Brooklyn. It happened around 6:30 p.m. Friday at the intersection of Atlantic Avenue and Schenectady Avenue in the Bedford Stuyvesant neighborhood.The New York Police Department says the 50 year-old victim had been walking on the sidewalk when she was hit.</textarea>
+            				</div>
+            				<div class="tab-pane" id="panel2">
+                      <textarea class="text-muted col-xs-12 col-lg-12 input--URL" rows="2" value="">http://confluence-denver.com/innovationnews/alchemyapi_booming.aspx</textarea>
+            				</div>
+                    <button id="submitbutton" name="results" class="btn btn-warning" style="float:right;">Analyze</button>
+            			</div>
+                </div>
+              </div>
+            </div><!--/row 1-->
+
+            <div class="container-fluid">
+                <div class="results row row-offcanvas row-offcanvas-right">
+                  <div class="col-xs-7 col-lg-7">
+                    <nav class="navbar navbar-inverse">
+                      <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                          <li id="t1" target="1" class="ml-item active">
+                            <a role="menuitem">Entities</a>
+                          </li>
+                          <li id="t2" target="2" class="ml-item">
+                            <a role="menuitem">Typed Relations</a>
+                          </li>
+                        </ul>
+                      </div><!-- /.nav-collapse -->
+                  </nav>
+
+                    <div class="db-wrapper">
+                        <div id="div1" class="db-pricing-nine 1-result" style="display:none">
+                            <div class="table-responsive">
+                              <div class="base--tbody entities-table"></div>
+                            </div>
+                        </div>
+                        <div id="div2" class="db-pricing-nine 2-result" style="display:none">
+                            <div class="table-responsive" class="base--tbody entities-table"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            <!--/row 2-->
+          </div>
+
+
+            <!-- <div class="output">
+
+              <div class="_demo--container results--container">
+
+                <div id="results" class="container result-container">
+                  <h2 class="base--h2">Results</h2>
+
+                  <div class="left-box">
+                    <div id="t1" target="1" class="ml-item ml-item-active">
+                      Relations
+                    </div>
+                    <div id="t2" target="2" class="ml-item">
+                      Typed Relations
+                    </div>
+                  </div>
+
+                  <div class="results-frame">
+                    <div id="div1" class="1-result">
+                      <h3 class="base--h3">Entities</h3>
+                      <div class="base--tbody entities-table">
+                      </div>
+                      <div class="btn-all-container">
+                        <div class="btn-all-results-relations arrowdown-main btn-results" href="#">View all results</div>
+                      </div>
+                    </div>
+
+                    <div id="div2" class="1-result">
+                      <h3 class="base--h3">Typed Relations</h3>
+                      <div class="typedrelations-table">
+                      </div>
+                      <div class="btn-all-container">
+                        <div class="btn-all-results-typedrelations arrowdown-main btn-results" href="#">View all results</div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!--/.output-->
+
+          </div><!--/.col-xs-12.col-sm-9-->
+
+          <div class="col-xs-6 col-sm-3 col-sm-pull-9 sidebar-offcanvas" id="sidebar">
+            <div class="list-group">
+              <a href="/ih" class="list-group-item active">Accident Insurance</a>
+            </div>
+          </div><!--/.sidebar-offcanvas-->
+        </div><!--/row-->
+    </div><!--/.container-fluid-->
+
+  </div><!--/.container-->
+
+  <script type="text/html" id="entitiesTemplate">
+    <table class="table table-hover entities resultscontainter">
+      <thead class="base--thead" style="border-bottom: 0;">
+        <tr class="base--tr">
+          <th class="db-bk-color-two">Entity</th>
+          <th class="db-bk-color-two">Sentiment</th>
+          <th class="db-bk-color-two">Type</th>
+        </tr>
+      </thead>
+    <% _.each(items, function(item, key, list) { %>
+
+        <tbody>
+          <tr class="base--tr">
+            <td class="base--td">
+              <%= item.text %>
+            </td>
+            <td class="base--td">
+              <%= item.sentiment.type %>
+            </td>
+            <td class="base--td">
+              <%= item.type %>
+            </td>
+          </tr>
+        </tbody>
+        <% if(item.emotions){ %>
+          <thead class="base--thead nested-relations">
+            <tr class="base--tr">
+              <th class="db-bk-color-two">Emotion</th>
+              <th class="db-bk-color-two">Score</th>
+            </tr>
+          </thead>
+          <% } %>
+            <tbody>
+              <% if(item.emotions){ %>
+                <tr class="base--tr">
+                  <td class="base--td">Anger</td>
+                  <td colspan="3" class="base--td">
+                    <%= item.emotions.anger %>
+                  </td>
+                </tr>
+                <% } %>
+                  <% if(item.emotions){ %>
+                    <tr class="base--tr">
+                      <td class="base--td">Disgust</td>
+                      <td colspan="3" class="base--td">
+                        <%= item.emotions.disgust %>
+                      </td>
+                    </tr>
+                    <% } %>
+                      <% if(item.emotions){ %>
+                        <tr class="base--tr">
+                          <td class="base--td">Fear</td>
+                          <td colspan="3" class="base--td">
+                            <%= item.emotions.fear %>
+                          </td>
+                        </tr>
+                        <% } %>
+                          <% if(item.emotions){ %>
+                            <tr class="base--tr">
+                              <td class="base--td">Joy</td>
+                              <td colspan="3" class="base--td">
+                                <%= item.emotions.joy %>
+                              </td>
+                            </tr>
+                            <% } %>
+                              <% if(item.emotions){ %>
+                                <tr class="base--tr">
+                                  <td class="base--td">Sadness</td>
+                                  <td colspan="3" class="base--td">
+                                    <%= item.emotions.sadness %>
+                                  </td>
+                                </tr>
+                                <% } %>
+            </tbody>
+
+
+      <% }); %>
+      </table>
+  </script>
+
+  <script type="text/html" id="typedRelationsTemplate">
+    <table class="base--table typedrelations resultscontainter">
+
+      <thead class="base--thead">
+        <tr class="base--tr">
+          <td class="base--td">Sentence</td>
+          <td class="base--td">Score</td>
+          <td class="base--td">Type</td>
+        </tr>
+      </thead>
+    <% _.each(items, function(item, key, list) { %>
+
+      <tbody>
+        <tr>
+          <td class="base--td">
+            <%=item.sentence %>
+          </td>
+          <td class="base--td">
+            <%=item.score %>
+          </td>
+          <td class="base--td">
+            <%=item.type %>
+          </td>
+        </tr>
+      </tbody>
+      <% if(item.arguments && item.arguments.length > 0){ %>
+
+        <thead class="base--thead base--thead nested-relations">
+          <tr class="base--tr">
+            <td class="base--td">Argument Text</td>
+            <td class="base--td">Part</td>
+            <td class="base--td"></td>
+          </tr>
+        </thead>
+        <% _.each(item.arguments, function(arguments, key, list) { %>
+
+          <tr>
+            <td class="base--td">
+              <%=arguments.text  %>
+            </td>
+
+            <td class="base--td">
+              <%=arguments.part %>
+            </td>
+            <td class="base--td"></td>
+          </tr>
+
+          <% }); %>
+
+            <thead class="base--thead">
+              <tr>
+                <td class="base--td base--thead nested-relations">Entities from Arguments</td>
+                <td class="base--td base--thead nested-relations">Type</td>
+                <td class="base--td base--thead nested-relations"></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% _.each(item.arguments, function(arguments, key, list) { %>
+                <% _.each(arguments.entities, function(entity, key, list) { %>
+                  <tr>
+
+                    <td class="base--td">
+                      <%=entity.text %>
+                    </td>
+                    <td colspan="2" class="base--td">
+                      <%=entity.type %>
+                    </td>
+
+                  </tr>
+                  <% }); %>
+                    <% }); %>
+
+                      <% } %>
+            </tbody>
+
+    <% }); %>
+    </table>
+  </script>
+
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/cf/cf.js"></script>
+  <script type="text/javascript" src="/js/string-utils.js"></script>
+  <script type="text/javascript" src="/js/i18n.js"></script>
+  <script type="text/javascript" src="/js/mortgage/watson-services.js"></script>
+
+</body>
+
+</html>
