@@ -10,6 +10,7 @@
 
 ### Launch Cognos Analytics on cloud.
 - Signup for trial or if you already have purchased CA on cloud, login using the userid and password.
+https://cognosnext.bi.ibmcloud.com/
 
 ### Create connections to DB2 Warehouse on cloud
 - Select "Manage" > "Data Server Connections" from left hand side menu 
