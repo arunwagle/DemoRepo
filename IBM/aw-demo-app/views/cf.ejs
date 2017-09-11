@@ -17,10 +17,18 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <!-- <link rel="stylesheet" type="text/css" href="css/styles2.css" /> -->
   <!-- <link rel="stylesheet" href="/css/screen.css" type="text/css"> -->
+  <link rel="stylesheet" href="/css/dc.css" />
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
   <script type="text/javascript" src="/js/cf/cf.js"></script>
+  <script src='js/crossfilter.js' type='text/javascript'></script>
+
+  <script src='js/d3.js' type='text/javascript'></script>
+  <script src='js/dc.js' type='text/javascript'></script>
+  <script src='js/queue.js' type='text/javascript'></script>
+  <script src='js/Dashboard.js' type='text/javascript'></script>
+
   <script type="text/javascript" src="/js/string-utils.js"></script>
   <script type="text/javascript" src="/js/i18n.js"></script>
 
@@ -74,7 +82,7 @@
           <!-- Plot Graph here -->
           <div class="row">
             <div class="col-xs-9 col-lg-9">
-              <h1>Use NLP with custom model to determine useful information.</h1>
+              <h1>Using Graph database to pull data for plotting the graph .</h1>
               <div id="exTab1">
                 <ul  class="nav nav-tabs">
                     <li class="active">
@@ -87,7 +95,19 @@
 
                 <div class="tab-content clearfix">
                   <div class="tab-pane active" id="panel1">
-                    Some content
+                    <div class="row">
+                        <div class="2u chart-wrapper" id="menuselect" style="background-color: #33CC99; height: 60px;">
+                            <div class="chart-title"><h4> Year Selector </h4> </div>
+                        </div>
+                        <div class="2u">
+                            <div>
+                              <span> &nbsp</span>
+                            </div>
+                        </div>
+                        <div class="3u dc-data-count dc-chart" id="row-selection">
+                          <span class="filter-count">_</span> selected out of <span class="total-count">_</span> complaints |
+                        </div>
+                    </div>
                   </div>
                   <div class="tab-pane" id="panel2">
                     Some Content
