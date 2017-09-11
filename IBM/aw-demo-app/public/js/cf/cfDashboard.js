@@ -1,6 +1,6 @@
 queue()
-    .defer(d3.json, "/api/data")
-    .defer(d3.json, "/api/ts/data")
+    .defer(d3.json, "/cf/cc/api/data")
+    .defer(d3.json, "/cf/cc/api/ts/data")
     .await(renderAll)
 
 

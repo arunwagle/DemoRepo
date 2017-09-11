@@ -76,6 +76,25 @@ module.exports = function (app) {
     return res.json(resp);
   });
 
+  // Consumer Complaints Dash board functions
+  app.post('/cf/cc/api/data', function(req, res, next) {
+    var graphName = "gtest";
+    console.log("graphName=" + graphName);
+    // var resp = ibmGraphSvc.createGraph(graphName);
+    // console.log("resp=" + resp);
+    return res.json(graphName);
+  });
+
+  app.post('/cf/cc/api/ts/data', function(req, res, next) {
+    var graphName = "gtest1";
+    console.log("graphName=" + graphName);
+    // var resp = ibmGraphSvc.createGraph(graphName);
+    // console.log("resp=" + resp);
+    return res.json(graphName);
+  });
+
+
+
 
 
 
