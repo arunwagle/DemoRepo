@@ -77,7 +77,7 @@ module.exports = function (app) {
   });
 
   // Consumer Complaints Dash board functions
-  app.post('/cf/cc/api/data', function(req, res, next) {
+  app.get('/cf/cc/api/data', function(req, res, next) {
     var graphName = "gtest";
     console.log("graphName=" + graphName);
     // var resp = ibmGraphSvc.createGraph(graphName);
@@ -85,7 +85,7 @@ module.exports = function (app) {
     return res.json(graphName);
   });
 
-  app.post('/cf/cc/api/ts/data', function(req, res, next) {
+  app.get('/cf/cc/api/ts/data', function(req, res, next) {
     var graphName = "gtest1";
     console.log("graphName=" + graphName);
     // var resp = ibmGraphSvc.createGraph(graphName);
