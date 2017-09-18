@@ -14,7 +14,7 @@ var username;
 var password;
 var baseURL;
 // TODO - Remove hard coding
-var gName = "gtest35";
+var gName = "gtest36";
 var deleteGraphName = "gtest35"
 
 
@@ -48,9 +48,9 @@ if (process.env.VCAP_SERVICES) {
   cloudant.set_cors({ enable_cors: true, allow_credentials: true, origins: ["*"]}, function(err, data) {
     console.log(err, data);
   });
-  db_vertexes = cloudant.db.use("db_cf_cc_vertexes_lar_ref");
-  db_edges = cloudant.db.use("db_cf_cc_edges_lar_ref");
-  db_issuelist = cloudant.db.use("db_cf_cc_issue_list_lar");
+  db_vertexes = cloudant.db.use("db_cf_cc_vertexes_med_ref");
+  db_edges = cloudant.db.use("db_cf_cc_edges_med_ref");
+  db_issuelist = cloudant.db.use("db_cf_cc_issue_list_med");
 
   db_edges.view('totalEdgesDesign', 'totalEdges', {reduce:true}, function(err, body) {
     if (!err) {
