@@ -1,4 +1,4 @@
-Excel to DB mapping - Internal use 
+# Excel to DB mapping - Internal use 
 
 1. Est. NAV in Base CCY *: Cell G10
 VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)+G2+G1+SUMIF('ALADDIN-SUB-RED'!$A:$A,Assets!G8,'ALADDIN-SUB-RED'!$E:$E)
@@ -11,7 +11,7 @@ a.    VLOOKUP(G7,MAPPING!$A:$B,2,FALSE)
 b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
           = VLOOKUP(Step 1 result(I-CJF), Fund NAV(Sheet)- range col A: col C, return col 3 value, exact match)
           = returns C48 (56683885.37)
-          * Note: Select NAV_BASE_CCY from FUND_NAV_DAILY_PL where FUND_ID='I-CJF'
+          ### Query: Select NAV_BASE_CCY from FUND_NAV_DAILY_PL where FUND_ID='I-CJF'
 
 
 2. Est. NAV in USD : Cell G9 = Val of G10      [Discuss this]
@@ -24,7 +24,7 @@ b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
                   G23 = BBH (USD)
                       =SUMIF('BBH - Cash'!D:D,"CRYSTAL JAPAN FUND",'BBH - Cash'!A:A)
                       = sum of all the 'Actual Available Balance' where Currency Account Name = 'CRYSTAL JAPAN FUND'
-                  DB Query:  Select sum(ACT_AVAIL_BAL) from BBH_CASH where FUND_ID='I-CJF' ;
+                  ### Query:  Select sum(ACT_AVAIL_BAL) from BBH_CASH where FUND_ID='I-CJF' ;
 
    b. JPY: C20:D20:G20
         i. G19 = =G22+G24+G26+G31
@@ -32,7 +32,7 @@ b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
            G24 = BBH (JPY)
                =SUMIF('BBH - Cash'!D:D,"JPY CRYSTAL JAPAN FUND",'BBH - Cash'!A:A)
                = sum of all the 'Actual Available Balance' where Currency Account Name = 'JPY CRYSTAL JAPAN FUND'
-           DB Query: Select sum(ACT_AVAIL_BAL) from BBH_CASH where FUND_ID='I-CJF' ;
+           ### Query: Select sum(ACT_AVAIL_BAL) from BBH_CASH where FUND_ID='I-CJF' ;
 
 
 4. CUSTODIAN TOTAL SECURITIES: C32:D32:G32
@@ -46,7 +46,7 @@ b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
                     G40 = BBH (JPY)
                     =SUMIF('BBH - Custody'!B:B,"Crystal Japan Fund",'BBH - Custody'!Y:Y)
                     = sum of all the 'Local Market Value' where Account Name = 'CRYSTAL JAPAN FUND'
-                DB Query: Select sum(ACT_AVAIL_BAL) from BBH_CASH where FUND_ID='I-CJF' ;
+                ### Query: Select sum(ACT_AVAIL_BAL) from BBH_CASH where FUND_ID='I-CJF' ;
 
 5. ALADDIN TOTAL SECURITIES: C79:D79:G79
       a. USD: C80:D80:G80
@@ -54,7 +54,7 @@ b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
       b. JPY: C81:D81:G81
       G81: =SUMIF('ALADDIN -SEC'!$W:$W,Assets!G$8&$C$81,'ALADDIN -SEC'!$K:$K)   //SUMIF( range, criteria, [sum_range] )
             // get Notational Market Value for I-CJF & JPY
-            DB Query: Select NOTIONAL_MKT_VAL,CURRENCY from ALADDIN_SEC where FUND_ID='I-CJF' and CURRENCY='JPY'
+            ### Query: Select NOTIONAL_MKT_VAL,CURRENCY from ALADDIN_SEC where FUND_ID='I-CJF' and CURRENCY='JPY'
 
 6. ALADDIN TOTAL CASH:C72:D72:G72
       a. ALADDIN USD:C73:D73:G73
@@ -85,7 +85,7 @@ b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
             Note:
             Search term = ABBB7(BALANCETYPE[A] + SortLevel[BBB] + Office[7]) + 42947(DateInt) + 89855 (Account)
             Return Value = NETLIQ/D5(Exchange rate JPY to USD)
-            Query: Select NET_LIQ from FCM_NE_BALANCE_EQUITY_BY_CURRENCY where FUND_ID='I-CJF' and AS_OF_DATE='' and BAL_TYPE='A' AND SORT_LEVEL='BBB' AND ACCT_NUM='89855'
+            ### Query: Select NET_LIQ from FCM_NE_BALANCE_EQUITY_BY_CURRENCY where FUND_ID='I-CJF' and AS_OF_DATE='' and BAL_TYPE='A' AND SORT_LEVEL='BBB' AND ACCT_NUM='89855'
 
     b. G57  = (VLOOKUP("ABBB7"&$D$3&89855,'FCM-NE'!AI:AM,3,FALSE)+VLOOKUP("ABBB7"&$D$3&89855,'FCM-NE'!AI:AM,5,FALSE))/D5
             = VLOOKUP("ABBB7"&<???>&89855, FCM-NE(Sheet)- range col AI: col AM, return col 3 value, exact match) +
@@ -95,4 +95,8 @@ b.    VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)
               Note:
               Search term = ABBB7(BALANCETYPE[A] + SortLevel[BBB] + Office[7]) + 42947(DateInt) + 89855 (Account)
               Return Value = FUTINITMARGIN + (NETLIQ - TOTALEQUITY)/D5(Exchange rate JPY to USD)
-              Query: Select NET_LIQ, FUTINITMARGIN, TOTALEQUITY from FCM_NE_BALANCE_EQUITY_BY_CURRENCY where FUND_ID='I-CJF' and AS_OF_DATE='' and BAL_TYPE='A' AND SORT_LEVEL='BBB' AND ACCT_NUM='89855'
+              ### Query: Select NET_LIQ, FUTINITMARGIN, TOTALEQUITY from FCM_NE_BALANCE_EQUITY_BY_CURRENCY where FUND_ID='I-CJF' and AS_OF_DATE='' and BAL_TYPE='A' AND SORT_LEVEL='BBB' AND ACCT_NUM='89855'
+
+
+
+#
