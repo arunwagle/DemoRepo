@@ -11,7 +11,7 @@ Mizuho does not have the means to automatically process and generate reports dur
 ### High Level Application Flow
 - [x] Bulk upload CSV data from on-premise location to Bluemix Object storage
 - [x] Create schema in DB2 Warehouse on cloud from the CSV files
-- [x] Move data from Bluemix Object storage to DB2 Warehouse on cloud using Bluemix Data Connect
+- [x] Move data from Bluemix Object storage to DB2 Warehouse on cloud using IBM DSX
 - [x] Generate reports using Cognos Analytics on cloud
 - [x] Automate all the above steps using Bluemix Workflow Scheduler 
 
@@ -24,6 +24,8 @@ Mizuho does not have the means to automatically process and generate reports dur
   - Refer to [Setup the scripts required to upload the files](src/main/bin/scripts/moveToCloud/README.md)  
 
 #### Create DB2 Warehouse on cloud schema from the CSV data files & ### Move data from Bluemix Object Storage to DB2 Warehouse on cloud
+- Refer to [Using IBM DSX to design python notebooks to move data from Object Storage and DashDB, schedule jobs](DSX_TODO.md) OR
+For simple row,col csv files we can also use
 - Refer to [Using Data Connect to design data flow between Object Storage and DashDB, schedule jobs](DataConnect.md)
 
 #### Automate the process 
