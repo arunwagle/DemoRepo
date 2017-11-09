@@ -9,11 +9,11 @@ Mizuho does not have the means to automatically process and generate reports dur
 
 # Demo Steps
 ### High Level Application Flow
-- [x] Bulk upload CSV data from on-premise location to Bluemix Object storage
+- [x] Bulk upload CSV data from on-premise location to Bluemix Object storage. Automate all the above steps using Bluemix Workflow Scheduler 
 - [x] Create schema in DB2 Warehouse on cloud from the CSV files
 - [x] Move data from Bluemix Object storage to DB2 Warehouse on cloud using IBM DSX
 - [x] Generate reports using Cognos Analytics on cloud
-- [x] Automate all the above steps using Bluemix Workflow Scheduler 
+
 
 
 #### Pre-requisites
