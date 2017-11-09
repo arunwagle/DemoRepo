@@ -1,5 +1,6 @@
 # Excel to DB mapping - Internal use 
 
+
 1. Est. NAV in Base CCY *: Cell G10
 VLOOKUP(VLOOKUP(G7,MAPPING!$A:$B,2,FALSE),'Fund NAV'!$A:$C,3,FALSE)+G2+G1+SUMIF('ALADDIN-SUB-RED'!$A:$A,Assets!G8,'ALADDIN-SUB-RED'!$E:$E)
 
