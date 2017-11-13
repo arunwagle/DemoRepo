@@ -1,10 +1,6 @@
 
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Amica/images/DB2%20Offerings.png">
 
-
-# DB2 Warehouse on Cloud details
-https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wf58c4c538dbf_45b4_b7a7_5003d0ceb79b/page/Db2%20Warehouse%20on%20Cloud
-
 # Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
 ### IBM Responsibility
 - OS and database software installation
@@ -63,5 +59,12 @@ https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8
 - Bluemix Lift encrypts your data as it travels across the wire.
 - Kick off a large database migration and walk away without worry.
 
+# DB2 Warehouse on Cloud details
+https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wf58c4c538dbf_45b4_b7a7_5003d0ceb79b/page/Db2%20Warehouse%20on%20Cloud
+
+# Questions
+1. Requirements for backup and recovery strategy 
+2. Requirements for High availability (HA)
+3. Requirements for Disaster recovery (DR) 
 
 
