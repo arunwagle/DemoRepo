@@ -1,3 +1,7 @@
+
+<img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Amica/images/DB2%20Offerings.png">
+
+
 # DB2 Warehouse on Cloud details
 https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wf58c4c538dbf_45b4_b7a7_5003d0ceb79b/page/Db2%20Warehouse%20on%20Cloud
 
