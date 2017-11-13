@@ -52,3 +52,12 @@ Jumpstart & Accelerator programs available
 # Data centers: CDS Service Availability Matrix
 https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8670_27e66e3f2799/page/CDS%20Service%20Availability%20Matrix
 
+# Data Migration using Lift
+- With Bluemix Lift you can migrate your data from IBM PureData System for Analytics and IBM Db2 to the IBM Db2 Warehouse on Cloud data warehouse and IBM Db2 Hosted respectively. Additionally, CSV flat files can be used to load IBM Db2 Warehouse on Cloud and IBM Db2 Hosted
+- Achieve data ingest speeds tens of times faster than traditional data movement solutions.
+- Eliminate the downtime associated with database migrations.
+- Bluemix Lift encrypts your data as it travels across the wire.
+- Kick off a large database migration and walk away without worry.
+
+
+
