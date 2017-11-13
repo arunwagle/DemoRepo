@@ -25,4 +25,4 @@ cp $SOURCE_CSV_FOLDER/*.csv  $CSV_LANDING_ZONE_FOLDER
 cp $SOURCE_TEMPLATE_FOLDER/*  $PROPERTIES_FOLDER
 ######## END: Copy template files from /resources/template to target/properties ###################
 
-echo CSV and property files copied successfully
+echo CSV and property files copied successfully to $CSV_LANDING_ZONE_FOLDER , $PROPERTIES_FOLDER

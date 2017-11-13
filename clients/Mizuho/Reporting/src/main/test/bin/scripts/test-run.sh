@@ -21,16 +21,16 @@ AUTH_PARAMS='{
       }
    }
 }'
-
-SCRIPT_HOME=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud
-PROPERTIES_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
+TODAYS_DATE=`date +%Y%m%d`
+SCRIPT_HOME=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/src/main/bin/scripts/moveToCloud
+PROPERTIES_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/properties
 CREDENTIAL_FILE=creds-bluemix-object-storage.txt
 BATCH_UPLOAD_FILE=batch-csv-upload.txt
-CSV_SOURCE_DIR=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
+CSV_SOURCE_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/CSVLandingZone
 CLOUD_STORAGE_URL=dallas
-STORAGE_CONTAINER=csv_landing_zone
-TEMP_DIR=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
-LOG_FOLDER=/home/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
+STORAGE_CONTAINER="MIZ_RPT_DLY_"$TODAYS_DATE
+TEMP_DIR=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/temp
+LOG_FOLDER=/Users/arunwagle/Projects/DemoRepo/clients/Mizuho/Reporting/target/logs
 UPLOAD_START_TAG="==UPLOADS_START=="
 UPLOAD_END_TAG="==UPLOADS_END=="
 DELIMITER=";"
@@ -183,7 +183,7 @@ echo  Step 3 Complete: Set and replace the variables in the files
 ######## STEP4: Upload files to object storage ###################
 cd $SCRIPT_HOME
 # Run batch upload
-perl moveToCloud.pl -batch $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE  -debug $LOG_FOLDER/log.txt
+perl moveToCloud.pl -batch $PROPERTIES_FOLDER/$BATCH_UPLOAD_FILE  -debug $LOG_FOLDER/log.txt -yes
 
 # Run single upload
 #perl moveToCloud.pl -source ../../data/AssetsImportCompleteSample.csv -target softlayer::dallas::csv_landing_zone::AssetsImportCompleteSample.csv -creds creds-bluemix-object-storage.txt -tmpdir temp -threads 6 -debug log.txt -token -nocompression
