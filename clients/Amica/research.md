@@ -129,5 +129,6 @@ https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8
 2. Requirements for High availability (HA) ?
 3. Requirements for Disaster recovery (DR) ?
 4. What product and version of MicroStrategy is being used ? 
+5. Why do they think need to increase this to internet pipe to 800 MBps ? Are there any specific data transfer requirement ? 
 
 
