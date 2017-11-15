@@ -24,7 +24,23 @@
 - Application, ETL connectivity
 
 
-### Sizing calculator
+### Sizing
+Recommendations based on below assumtions
+- 1.5 TB of compressed data (provided by client)
+- Compression ratio of 3X
+- % of Frequently accessed rows 30%
+- % of Frequently accessed columns 50%
+
+Recommended configuration based on sizing calculator- 
+- DB2 Warehouse on Cloud Enterprise MPP supernode
+- Cores: 48 cores per node
+- Storage per node: 4.4 TB
+- Total nodes: 3
+- Total cores: 144
+- Total Memory: 3TB
+- Total Storage: 13.2 TB
+
+##### Sizing calculator
 http://dashdb-configurator.stage1.mybluemix.net
 ```
 Note:
