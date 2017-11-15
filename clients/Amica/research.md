@@ -2,6 +2,9 @@
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Amica/images/DB2%20Offerings.png">
 
 # Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
+### Current version 
+v2.1
+
 ### IBM Responsibility
 - OS and database software installation
 - Optimized configuration for analytics workloads
@@ -46,7 +49,6 @@ http://dashdb-configurator.stage1.mybluemix.net
 Note:
 Db2 Warehouse on Cloud – MPP Large Plan
 There is actually an MPP Large size that is available – referred to as “super node” internally (and this is for SoftLayer only).
-This size hasn’t been officially announced, nor mentioned in the Bluemix catalog but it is available for order if customers require very large (e.g. 100TB to PB sized) environments
 
 Specifications (per node)
 48 cores
@@ -88,8 +90,39 @@ https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8
     
     Ans: Current Version for MicroStrategy is supported for sure. Refer to Data Sheet above. If any specific versions needs to be supported, let us know the details
 
-# DB2 Warehouse on Cloud details
-https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wf58c4c538dbf_45b4_b7a7_5003d0ceb79b/page/Db2%20Warehouse%20on%20Cloud
+# Data backups
+- Db2 Warehouse on Cloud, the last 2 daily backups are retained
+- These backups are used exclusively by IBM for only system recovery purposes in the event of a disaster or system loss
+- Data can be exported using Db2 tools such as IBM Data Studio or by using the db2 export command and then populate othe environments (DEV/QA)
+
+# HA & DR
+- (HA) is provided by IBM restarting software, restarting downed servers, and replacing failing servers
+- Disaster recovery (DR) is accomplished through a dual ETL approach where the customer does the same insert/update/delete/load activity to two separate instances
+- Not customizable
+- More advanced DR ad HA will be available in future, no dates yet.
+
+# Security
+- Encrypted data at-rest using AES 256
+- Encrypted data in-motion - via SSL/TLS
+- Application authentication using embedded LDAP server
+- Authorization – Grant permissions to specific tables, rows, roles
+- Optionally restrict access to specify client host names
+- Host firewall to protect from port scans/network intrusion
+- Private VLAN and VPN options available with ICIAE network service
+- ISO 27001 certified
+- SOC 2 Type 1 & SOC 2 Type 2 certified, SOC 3
+- HIPAA-ready
+- Privacy Shield certified
+- Monitored 24x7
+- Fully managed for setup, configuration, tuning and DR operations
+- InfoSphere Guardium-based audit reports and monitoring
+- Sensitive data monitoring through Guardium Database Activity monitoring to discover sensitive data, connections and SQL statements
+
+
+# Links
+- DB2 Warehouse on Cloud details https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wf58c4c538dbf_45b4_b7a7_5003d0ceb79b/page/Db2%20Warehouse%20on%20Cloud
+- FAQ https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.doc/managed_service.html
+- Security and Compliance https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/compliances.html
 
 # Questions
 1. Requirements for backup and recovery strategy ?
