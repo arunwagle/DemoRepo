@@ -66,8 +66,10 @@ https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8
 - Refer to Microstrategy Datasheet https://github.com/arunwagle/DemoRepo/blob/master/clients/Amica/images/Data-Connectivity-Product-Sheet_IBM-DB2.pdf
 - Questions
   - What is the highest version of Microstrategy which is supported by Db2 9.7?
+    
     Ans: Microstategy connects to DB2 using JDBC drivers, Current version of Microstrategy supports **IBM DB2 9.7 and higher**& above. Also the current DB2Warehouse on Cloud supports **IBM DB2 11.1**, IBM DB2 10.5, IBM DB2 10.0, IBM DB2 9.7. Unless we are looking for specific version for MicroStrategy we should be good.
   - Also, what versions of Microstrategy are supported by Db2WH on Cloud?
+    
     Ans: Current Version for MicroStrategy is supported for sure. Refer to Data Sheet above. If any specific versions needs to be supported, let us know the details
 
 # DB2 Warehouse on Cloud details
