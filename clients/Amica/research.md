@@ -1,4 +1,20 @@
 
+# Index
+- [x] DB2 Offerings. Who does what ? 
+- [x] Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
+  - [x] Current version 
+  - [x] IBM Responsibility
+  - [x] Client Responsibility 
+  - [x] Sizing
+  - [x] Deployment options : Bluemix Public vs. Bluemix Dedicated
+  - [x] Data centers: CDS Service Availability Matrix
+  - [x] Data Migration using Lift 
+  - [x] Details on MicroStrategy
+  - [x] Data backups
+  - [x] HA & DR
+  - [x] Security
+  - [x] Questions  
+  
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Amica/images/DB2%20Offerings.png">
 
 # Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
