@@ -71,11 +71,16 @@ Jumpstart & Accelerator programs available
 https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8670_27e66e3f2799/page/CDS%20Service%20Availability%20Matrix
 
 # Data Migration using Lift
-- With Bluemix Lift you can migrate your data from IBM PureData System for Analytics and IBM Db2 to the IBM Db2 Warehouse on Cloud data warehouse and IBM Db2 Hosted respectively. Additionally, CSV flat files can be used to load IBM Db2 Warehouse on Cloud and IBM Db2 Hosted
+- With Bluemix Lift you can migrate your data from IBM PureData System for Analytics and IBM Db2 to the IBM Db2 Warehouse on Cloud data warehouse and IBM Db2 Hosted respectively. 
 - Achieve data ingest speeds tens of times faster than traditional data movement solutions.
+- For data movement needs of medium to small amounts of data, 25TB or below
+- Lift slingshot uses an **Aspera** SSH connection using SSL and TLS
+  
+  https://www.ibm.com/cloud/high-speed-data-transfer
 - Eliminate the downtime associated with database migrations.
 - Bluemix Lift encrypts your data as it travels across the wire.
 - Kick off a large database migration and walk away without worry.
+- Free of cost
 
 # Details on MicroStrategy
 - Latest Supported Version - **IBM DB2 9.7 and higher**
