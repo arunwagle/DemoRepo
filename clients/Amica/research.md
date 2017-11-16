@@ -18,8 +18,8 @@
 <img src="https://github.com/arunwagle/DemoRepo/blob/master/clients/Amica/images/DB2%20Offerings.png">
 
 # Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
-### Current version 
-v2.1
+### Current DB2 version 
+v11.1
 
 ### IBM Responsibility
 - OS and database software installation
@@ -144,6 +144,7 @@ https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W8d93a574563a_4a54_8
 - DB2 Warehouse on Cloud details https://w3-connections.ibm.com/wikis/home?lang=en#!/wiki/Wf58c4c538dbf_45b4_b7a7_5003d0ceb79b/page/Db2%20Warehouse%20on%20Cloud
 - FAQ https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.doc/managed_service.html
 - Security and Compliance https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/compliances.html
+- MicroStrategy Expected Expiration Dates for Existing Versions https://www.microstrategy.com/us/services/technical-support/expiration-schedule
 
 # Questions
 1. Requirements for backup and recovery strategy ?
