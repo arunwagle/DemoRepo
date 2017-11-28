@@ -100,3 +100,7 @@ CentOS Linux release 7.2.1511 (Core)
    ```
 
 - Install the IBM Private Cloud ICP edition
+```
+https://www.ibm.com/support/knowledgecenter/SSBS6K_2.1.0/installing/install_containers_CE.html
+
+```
