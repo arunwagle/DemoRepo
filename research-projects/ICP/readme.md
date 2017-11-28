@@ -1,5 +1,6 @@
 # Index
 - [x] Create a multinode cluster 
+- [x] IBM Cloud Private (ICP) 
 
 # Create a multinode cluster 
 
@@ -51,3 +52,39 @@ CentOS Linux release 7.2.1511 (Core)
    vagrant plugin install vagrant-puppet-install
    
    ```
+# Create a multinode cluster 
+
+## Prerequisites
+- Master node setup
+  ```
+  sudo sysctl vm.max_map_count
+  ## Set if less than 262144
+  sudo sysctl -w vm.max_map_count=262144
+  ```
+- Install Python
+- Install docker
+ - uninstall prev version using 
+   ```
+   sudo yum remove docker \
+                  docker-common \
+                  docker-selinux \
+                  docker-engine
+   ```
+ - install process
+   ```
+  Step1:
+  sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+  
+  Step2:
+  sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+  sudo yum install docker-ce
+  
+  
+   
+   ```
+
