@@ -43,3 +43,11 @@ CentOS Linux release 7.2.1511 (Core)
     Install VirtualBox extensions
     wget http://download.virtualbox.org/virtualbox/5.2.0/Oracle_VM_VirtualBox_Extension_Pack-5.2.0.vbox-extpack
 ```
+- Download and install vagrant from https://www.vagrantup.com/downloads.html
+ - Run the below commands
+   ```
+   vagrant plugin install vagrant-hostmanager
+   vagrant plugin install puppet
+   vagrant plugin install vagrant-puppet-install
+   
+   ```
