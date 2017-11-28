@@ -70,7 +70,7 @@ CentOS Linux release 7.2.1511 (Core)
                   docker-selinux \
                   docker-engine
    ```
- - install process
+ - install pre steps
    ```
   Step1:
   sudo yum install -y yum-utils \
@@ -84,7 +84,19 @@ CentOS Linux release 7.2.1511 (Core)
 
   sudo yum install docker-ce
   
+  Step3:
+  sudo systemctl start docker
   
-   
+  Step4: disable SELinux
+  sudo setenforce 0
+  
+  Step5: Install pip
+  sudo yum install python-setuptools
+  sudo easy_install pip
+  
+  Step6: Install ssh clients
+  sudo yum install openssh-clients
+  
    ```
 
+- Install the IBM Private Cloud ICP edition
