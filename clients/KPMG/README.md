@@ -4,7 +4,7 @@
   - [x] Watson Data Explorer, IBM Product
   - [x] Risk Segments
   - [x] Report generation process 
-- [x] New Analytics Project
+- [x] Project - Red Flag Report
   - [x] Info
   - [x] Objectives
   - [x] Assumptions     
@@ -57,7 +57,7 @@ DATA EXPLORER -----retrieves----> APPROX 300 ARTICLES
   - Automate report generation using *Inhouse product* 
   - Exiger, Due Diligence Players acquired DDIQ(Due Diligence IQ), has 15-20 min SLA for Entity lookup
   
-# New Analytics Project
+# Project - Red Flag Report
 ### Info
 1. KPMG wants to enable clients to do a pre check on the various entities(Companies) and generate a *Red Flag Report*
 2. SLA to complete the whole process is 10 minutes from the point the entity
