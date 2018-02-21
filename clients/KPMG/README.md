@@ -8,14 +8,8 @@
   - [x] Info
   - [x] Objectives
   - [x] Assumptions     
-- [] Proposed Technologies
-- [] High Level architecture
-
-
-- [x] Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
-  - [x] Current version 
-  - [x] IBM Responsibility
-
+- [x] Proposed Technologies
+- [x] High Level Architecture
 
 # Current Project Background
 ### Astrus IDD (Integrity Due Dilegence) Product
