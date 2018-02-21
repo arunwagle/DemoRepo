@@ -1,3 +1,22 @@
+# Index
+- [x] Current Project Background
+  - [x] Astrus IDD (Integrity Due Dilegence) Product
+  - [x] Watson Data Explorer, IBM Product
+  - [x] Risk Segments
+  - [x] Report generation process 
+- [x] New Analytics Project
+  - [x] Info
+  - [x] Objectives
+  - [x] Assumptions     
+- [] Proposed Technologies
+- [] High Level architecture
+
+
+- [x] Db2 Warehouse on Cloud: A Fully Managed Analytics Warehouse
+  - [x] Current version 
+  - [x] IBM Responsibility
+
+
 # Current Project Background
 ### Astrus IDD (Integrity Due Dilegence) Product
 - KPMG currently uses Astrus IDD product to do 3rd party background check on various companies for a client.
@@ -58,15 +77,15 @@ DATA EXPLORER -----retrieves----> APPROX 300 ARTICLES
  
  ### Objectives
  1. Powerful Analytics
-  - Handled by Anaytics team from Xoriant
+    Handled by Anaytics team from Xoriant
  2. Data Sourcing
-  - This will be taken care by startup Import.io
-  - Data needs to be sourced from approximatel 40 sources
-  - 40 sources divided into static and dynamic websites (e.g. Search based websites). Currently we have only 2-3 sources.
-  - Import.io has to write close to 300 different *Extractors* to extract data for an entity. 
+    - This will be taken care by startup Import.io
+    - Data needs to be sourced from approximatel 40 sources
+    - 40 sources divided into static and dynamic websites (e.g. Search based websites). Currently we have only 2-3 sources.
+    - Import.io has to write close to 300 different *Extractors* to extract data for an entity. 
  3. Infrastructure
-  - Build a powerful infrastructure to handle the request from the point of Entity search based on various extractors to triggering Analytics platform to compute the Risk Score for generating Red Flag Report.
-  - Insfrastructure should be totally elastic as the workloads are not consistent. The chosen architecture should be able to scale up/down for *compute* and *storage* independanlty and based on usage pattern. 
+    - Build a powerful infrastructure to handle the request from the point of Entity search based on various extractors to triggering Analytics platform to compute the Risk Score for generating Red Flag Report.
+    - Insfrastructure should be totally elastic as the workloads are not consistent. The chosen architecture should be able to scale up/down for *compute* and *storage* independanlty and based on usage pattern. 
  
 ### Assumptions
 #### Total requests/month
