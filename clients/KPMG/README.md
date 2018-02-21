@@ -45,8 +45,34 @@ DATA EXPLORER -----retrieves----> APPROX 300 ARTICLES
   - Exiger, Due Diligence Players acquired DDIQ(Due Diligence IQ), has 15-20 min SLA for Entity lookup
   
 # New Analytics Project
+### Info
 1. KPMG wants to enable clients to do a pre check on the various entities(Companies) and generate a *Red Flag Report*
 2. SLA to complete the whole process is 10 minutes from the point the entity
-2. Red Flag Report will be generated based on 6 Risk Segments
-
+3. Red Flag Report will be generated based on 6 Risk Segments
+  - Law Suits 
+  - Sanctions
+  - Background check
+  - Litigations
+  - ?
+  - ?
+ 
+ ### Objectives
+ 1. Powerful Analytics
+  - Handled by Anaytics team from Xoriant
+ 2. Data Sourcing
+  - This will be taken care by startup Import.io
+  - Data needs to be sourced from approximatel 40 sources
+  - 40 sources divided into static and dynamic websites (e.g. Search based websites). Currently we have only 2-3 sources.
+  - Import.io has to write close to 300 different *Extractors* to extract data for an entity. 
+ 3. Infrastructure
+  - Build a powerful infrastructure to handle the request from the point of Entity search based on various extractors to triggering Analytics platform to compute the Risk Score for generating Red Flag Report.
+  - 
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
  
