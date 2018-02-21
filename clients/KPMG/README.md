@@ -66,9 +66,34 @@ DATA EXPLORER -----retrieves----> APPROX 300 ARTICLES
   - Import.io has to write close to 300 different *Extractors* to extract data for an entity. 
  3. Infrastructure
   - Build a powerful infrastructure to handle the request from the point of Entity search based on various extractors to triggering Analytics platform to compute the Risk Score for generating Red Flag Report.
-  - 
-  
+  - Insfrastructure should be totally elastic as the workloads are not consistent. The chosen architecture should be able to scale up/down for *compute* and *storage* independanlty and based on usage pattern. 
  
+### Assumptions
+#### Total requests/month
+ KPMG is expecting 10,000 entity search requests/month.
+ 
+#### Total input sources to search entity information
+ KPMG has identified 300 sources, hence Import.io will have to provide 300 Extractors. 
+ 
+#### Total requests to be supported
+ Based on above, we need to support close to 3 Million requests/month
+
+#### KPMG's Assumption on existing requests from clients
+- Based on KPMG current observations, we will running only 50 sources, so we will have to execute 50 extractors at any one point in time for each entity.
+- Based on 4 we should be able to support 500,000 requests/month. 
+ 
+#### Storage requirements
+- Per extractors, we get approximately 10 documents in resultset.
+- We should be able to support *~ 50,000*10= 5Million docs/month* in short term and * ~3 Million*10 = 30Mil docs/month*.
+- What is the size of documents ?
+- How long do we store the documents, per request/day/month etc ?
+
+#### Analytics Capabilities
+- Analytics will be triggered once extractor process is completed.
+- 6 different Analytics jobs will be run based on the 6 risk segments.
+- Analytics will be run on a filtered set of 50 Million documents.
+
+# Proposed Technologies
  
  
  
