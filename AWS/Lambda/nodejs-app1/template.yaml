@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion : '2018-02-16'
+Transform: AWS::Serverless-2018-02-16
+Description: My first serverless application.
+
+Resources:
+
+  Products:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: products.handler
+      Runtime: nodejs6.10
+      Events:
+        ListProducts:
+          Type: Api
+          Properties:
+            Path: /products
+            Method: get
+        CreateProduct:
+          Type: Api
+          Properties:
+            Path: /products
+            Method: post
+        Product:
+          Type: Api
+          Properties:
+            Path: /products/{product}
+            Method: any
