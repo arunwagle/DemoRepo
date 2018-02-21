@@ -1,4 +1,4 @@
-# Project Background
+# Current Project Background
 ### Astrus IDD (Integrity Due Dilegence) Product
 - KPMG currently uses Astrus IDD product to do 3rd party background check on various companies for a client.
 - Client sends a request to KPMG to run IDD process
@@ -24,18 +24,29 @@ DATA EXPLORER -----retrieves----> APPROX 300 ARTICLES
 ```
 ### Risk Segments
 1. Law Suits
-2. Adverse Press
+2. Adverse Press on companies
 3. Background details (E.g. Company details, Stock price performance etc)
 4. Key Shareholders details,owns > 5% ownership in companies (E.g. Background checks)
 5. Shareholders (E.g. Check for Adverse Press) 
 6. ? 
 
 ### Report generation process
-- Watson results are analyzed by KPMG Analysts. Results are in different languages
+- Watson results are analyzed by KPMG Analysts
+- 20% results are in different languages
 - Generates reports using EDD(Enhanced Due Diligence) process
-- SLA
+- Old SLA
   - 72 hours to Analyze Watson Results
   - 3 days for review of response/reports
 - 600-700 reports/month
-
+- Enhancements
+  - Provided Analysts full text search capabilities using SOLR 
+  - Implemented language translation using *SysTran Product*
+  - Automate report generation using *Inhouse product* 
+  - Exiger, Due Diligence Players acquired DDIQ(Due Diligence IQ), has 15-20 min SLA for Entity lookup
   
+# New Analytics Project
+1. KPMG wants to enable clients to do a pre check on the various entities(Companies) and generate a *Red Flag Report*
+2. SLA to complete the whole process is 10 minutes from the point the entity
+2. Red Flag Report will be generated based on 6 Risk Segments
+
+ 
