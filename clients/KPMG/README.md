@@ -8,8 +8,8 @@
   - [x] Info
   - [x] Objectives
   - [x] Assumptions     
-- [x] Proposed Technologies
-- [x] High Level Architecture
+- [x] Proposed Technologies [TODO]
+- [x] High Level Architecture [TODO]
 
 # Current Project Background
 ### Astrus IDD (Integrity Due Dilegence) Product
@@ -106,10 +106,10 @@ DATA EXPLORER -----retrieves----> APPROX 300 ARTICLES
 - 6 different Analytics jobs will be run based on the 6 risk segments.
 - Analytics will be run on a filtered set of 50 Million documents.
 
-# Proposed Technologies
+# Proposed Technologies[TODO]
  
- 
- 
+# High Level Architecture [TODO]
+
  
   
   
